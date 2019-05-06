@@ -1,4 +1,4 @@
-package java.com.dsw.dao;
+package br.dsw.dao;
 
 import java.util.List;
 import javax.persistence.EntityManager;
