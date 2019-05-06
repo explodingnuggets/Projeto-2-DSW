@@ -1,46 +1,46 @@
 package br.dsw.dao;
 
-import br.dsw.pojo.Usuario;
+import br.dsw.pojo.SiteVendas;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-public class UsuarioDAO extends GenericDAO<Usuario> {
+public class SiteVendasDAO extends GenericDAO<SiteVendas> {
     @Override
-    public Usuario get(long id) {
+    public SiteVendas get(long id) {
         EntityManager em = this.getEntityManager();
-        Usuario usuario = em.find(Usuario.class, id);
+        SiteVendas site = em.find(SiteVendas.class, id);
         em.close();
         
-        return usuario;
+        return site;
     }
     
     @Override
-    public void save(Usuario usuario) {
+    public void save(SiteVendas site) {
         EntityManager em = this.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        em.persist(usuario);
+        em.persist(site);
         tx.commit();
         em.close();
     }
     
     @Override
-    public void update(Usuario usuario) {
+    public void update(SiteVendas site) {
         EntityManager em = this.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        em.merge(usuario);
+        em.merge(site);
         tx.commit();
         em.close();
     }
     
     @Override
-    public void delete(Usuario usuario) {
+    public void delete(SiteVendas site) {
         EntityManager em = this.getEntityManager();
         EntityTransaction tx = em.getTransaction();
-        usuario = em.getReference(Usuario.class, usuario.getId());
+        site = em.getReference(SiteVendas.class, site.getId());
         tx.begin();
-        em.remove(usuario);
+        em.remove(site);
         tx.commit();
         em.close();
     }
