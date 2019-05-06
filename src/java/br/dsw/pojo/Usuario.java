@@ -10,9 +10,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 @Entity
-@NamedQueries({
-    @NamedQuery(name="Usuario.findAll", query="SELECT u from Usuario u")
-})
 public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)

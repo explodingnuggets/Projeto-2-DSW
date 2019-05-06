@@ -1,7 +1,6 @@
 package br.dsw.dao;
 
 import br.dsw.pojo.Usuario;
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
@@ -45,15 +44,5 @@ public class UsuarioDAO extends GenericDAO<Usuario> {
         em.remove(usuario);
         tx.commit();
         em.close();
-    }
-    
-    @Override
-    public List<Usuario> getAll() {
-        EntityManager em = this.getEntityManager();
-        Query q = em.createNamedQuery("Usuario.findAll");
-        List<Usuario> lista = q.getResultList();
-        em.close();
-        
-        return lista;
     }
 }
