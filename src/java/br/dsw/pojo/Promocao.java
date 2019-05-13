@@ -18,8 +18,8 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(
     uniqueConstraints={
-        @UniqueConstraint(columnNames={"id", "site"}),
-        @UniqueConstraint(columnNames={"id", "teatro"})
+        @UniqueConstraint(columnNames={"site", "diaHorario"}),
+        @UniqueConstraint(columnNames={"teatro", "diaHorario"})
     }
 )
 public class Promocao implements Serializable {
