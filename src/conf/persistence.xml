@@ -3,6 +3,8 @@
   <persistence-unit name="DSWPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>br.dsw.pojo.Usuario</class>
+    <class>br.dsw.pojo.Teatro</class>
+    <class>br.dsw.pojo.SiteVendas</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/Projeto2"/>
