@@ -5,6 +5,7 @@
     <class>br.dsw.pojo.Usuario</class>
     <class>br.dsw.pojo.Teatro</class>
     <class>br.dsw.pojo.SiteVendas</class>
+    <class>br.dsw.pojo.Promocao</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/Projeto2"/>
