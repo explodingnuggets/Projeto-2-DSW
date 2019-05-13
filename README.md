@@ -37,7 +37,7 @@ promoção na base de dados.
 - [ ] Listagem de todas as promoções de um teatro (não requer login).
 - [ ] Listagem de todas as promoções de um site de venda de ingressos
 (requer login do site: via e-mail + senha).
-- [ ] O sistema não deve permitir o cadastro de promoções de um mesmo
+- [X] O sistema não deve permitir o cadastro de promoções de um mesmo
 teatro ou de um mesmo site de venda de ingressos em um mesmo
 dia/horário.
 - [ ] O sistema deve ser internacionalizado em pelo menos dois idiomas:
