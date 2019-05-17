@@ -8,10 +8,40 @@
 
     <h:body>
         <ui:include src="../includes/navbar.xhtml"/>
-        <h:form>
+        <!-- <h:form>
             <h:outputText value ="Hello from Facelets" />
             <h:commandButton action = "second_page?faces-redirect = true" value = "Page2" />
-        </h:form>
+        </h:form> -->
+        <section class="section">
+            <div class="container">
+                <!-- <%@ include file="../includes/message.jsp" %> -->
+
+                <div class="columns">
+                    <div class="column has-text-centered">
+                        <i class="fas fa-8x fa-ticket-alt"></i>
+                        <a href="/ingresso/list" class="button is-large is-fullwidth">
+                            <h:outputText value ="Ingressos" />
+                        </a>
+                    </div>
+                    <div class="column has-text-centered">
+                        <i class="fas fa-8x fa-theater-masks"></i>
+                        <a href="/teatro/list" class="button is-large is-fullwidth">
+                            <h:outputText value ="Teatros" />
+                        </a>
+                    </div>
+                    <!-- <c:if test="${sessionScope.is_admin != null && sessionScope.is_admin == true}"> -->
+                    <div class="column has-text-centered">
+                        <i class="fas fa-8x fa-globe"></i>
+                        <a href="/site/list" class="button is-large is-fullwidth">
+                            <h:outputText value ="Sites" />
+                        </a>
+                    </div>
+                    <!-- </c:if> -->
+                </div>
+            </div>
+        </section>
+
+        <ui:include src="../includes/footer.xhtml" />
     </h:body>
 </html>
 
