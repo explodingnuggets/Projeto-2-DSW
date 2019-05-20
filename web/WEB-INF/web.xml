@@ -14,7 +14,7 @@
     </filter>
     <filter-mapping>
         <filter-name>AdminFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/site/*</url-pattern>
     </filter-mapping>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
@@ -31,6 +31,14 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>view/index.xhtml</welcome-file>
+        <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/faces/404.xhtml</location>
+    </error-page>
+    <error-page>
+        <error-code>401</error-code>
+        <location>/faces/401.xhtml</location>
+    </error-page>
 </web-app>

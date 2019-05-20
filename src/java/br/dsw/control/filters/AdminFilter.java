@@ -1,5 +1,6 @@
 package br.dsw.control.filters;
 
+import br.dsw.control.Permissoes;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -20,6 +21,14 @@ public class AdminFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) resp;
         
         HttpSession session = request.getSession();
+        if(!Permissoes.isAdminSession(session)) {
+            session.removeAttribute("user_id");
+            session.removeAttribute("user_email");
+            session.removeAttribute("is_admin");
+            
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+            return;
+        }
         
         chain.doFilter(req, resp);
     }
