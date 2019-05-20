@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui = "http://java.sun.com/jsf/facelets">
+
+    <section>
+        <nav class="navbar  is-primary " role="navigation" aria-label="main navigation">
+            <div class="container">
+                <div class="navbar-brand">
+                    <span class="navbar-item">
+                        <span class="icon">
+                            <i class="fas fa-2x fa-money-bill-wave"></i></span>
+                    </span>
+                    <span class="navbar-burger burger" data-target="navbarMenuHeroC">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </div>
+                <div id="navbarMenuHeroC" class="navbar-menu">
+                    <div class="navbar-end">
+                        <a class="navbar-item" href="/">
+                            <span class="icon">
+                                <i class="fas fa-home"></i>
+                            </span>
+                            <span>
+                                <h:outputText value ="Inicio" />
+                            </span>
+                        </a>
+                        <a class="navbar-item" href="/ingresso/list">
+                            <span class="icon">
+                                <i class="fas fa-ticket-alt"></i>
+                            </span>
+                            <span>
+                                <h:outputText value ="Ingressos" />
+                            </span>
+                        </a>
+                        <a class="navbar-item" href="/teatro/list">
+                            <span class="icon">
+                                <i class="fas fa-theater-masks"></i>
+                            </span>
+                            <span>
+                                <h:outputText value ="Teatros" />
+                            </span>
+                        </a>
+                        <!-- <c:if test="${sessionScope.is_admin != null && sessionScope.is_admin == true}"> -->
+
+                        <a class="navbar-item" href="/site/list">
+                            <span class="icon">
+                                <i class="fas fa-globe"></i>
+                            </span>
+                            <span>
+                                <h:outputText value ="Sites" />
+                            </span>
+                        </a>
+                        <!-- </c:if> -->
+                        <!-- <c:choose>
+                            <c:when test="${sessionScope.user_id == null}">
+                                <a class="navbar-item" href="/usuario/login">
+                                    <span class="icon">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                    </span>
+                                    <span>
+                                        <fmt:message key="navbar.login"/>
+                                    </span>
+                                </a>
+                            </c:when>
+                            <c:when test="${sessionScope.user_id != null}">
+                                <span class="navbar-item">
+                                    <div class="tags has-addons">
+                                        <span class="tag">
+                                            <c:out value="${sessionScope.user_email}" />
+                                        </span>
+                                        <a href="/teatro/show" class="tag is-info">
+                                            <fmt:message key="navbar.meu_teatro"/>
+                                        </a>
+                                    </div>
+
+                                </span>
+                                <a class="navbar-item" href="/usuario/logout">
+                                    <span class="icon">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                    </span>
+                                    <span>
+                                        <fmt:message key="navbar.logout"/>
+                                    </span>
+                                </a>
+                            </c:when>
+                        </c:choose>
+     -->
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </section>
+</html>
