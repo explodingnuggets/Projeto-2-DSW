@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class AdminFilter implements Filter {
+public class LoggedFilter implements Filter {
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp,
             FilterChain chain) throws ServletException, IOException {
@@ -20,7 +20,7 @@ public class AdminFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) resp;
         
         HttpSession session = request.getSession();
-        if(!Permissoes.isAdminSession(session)) {
+        if(!Permissoes.isUserSession(session)) {
             session.removeAttribute("user_id");
             session.removeAttribute("user_email");
             session.removeAttribute("is_admin");

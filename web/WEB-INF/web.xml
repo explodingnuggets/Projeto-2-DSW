@@ -14,7 +14,23 @@
     </filter>
     <filter-mapping>
         <filter-name>AdminFilter</filter-name>
-        <url-pattern>/site/*</url-pattern>
+        <url-pattern>/site/list</url-pattern>
+        <url-pattern>/site/delete</url-pattern>
+        <url-pattern>/site/update</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>LoggedFilter</filter-name>
+        <filter-class>br.dsw.control.filters.LoggedFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoggedFilter</filter-name>
+        <url-pattern>/ingresso/por-site</url-pattern>
+        <url-pattern>/ingresso/delete</url-pattern>
+        <url-pattern>/ingresso/update</url-pattern>
+        <url-pattern>/site/delete</url-pattern>
+        <url-pattern>/site/update</url-pattern>
+        <url-pattern>/teatro/delete</url-pattern>
+        <url-pattern>/teatro/update</url-pattern>
     </filter-mapping>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>

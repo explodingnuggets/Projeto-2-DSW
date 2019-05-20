@@ -13,4 +13,14 @@ public class Permissoes {
         
         return false;
     }
+    
+    public static boolean isUserSession(HttpSession session) {
+        Object userId = session.getAttribute("user_id");
+        if(userId != null) {
+            UsuarioDAO dao = new UsuarioDAO();
+            return dao != null;
+        }
+        
+        return false;
+    }
 }
