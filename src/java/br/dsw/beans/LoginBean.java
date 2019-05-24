@@ -11,6 +11,6 @@ public class LoginBean implements Serializable {
    }
     
     public String login() {
-        return "/faces/index.xhtml";
+        return "/faces/index?faces-redirect=true";
     }
 }
