@@ -54,41 +54,33 @@
                                 <h:outputText value ="#{msg['navbar.sites']}" />
                             </span>
                         </a>
-                        <!-- </c:if> -->
-                        <!-- <c:choose>
-                            <c:when test="${sessionScope.user_id == null}">
-                                <a class="navbar-item" href="/usuario/login">
-                                    <span class="icon">
-                                        <i class="fas fa-sign-in-alt"></i>
-                                    </span>
-                                    <span>
-                                        <fmt:message key="navbar.login"/>
-                                    </span>
-                                </a>
-                            </c:when>
-                            <c:when test="${sessionScope.user_id != null}">
-                                <span class="navbar-item">
-                                    <div class="tags has-addons">
-                                        <span class="tag">
-                                            <c:out value="${sessionScope.user_email}" />
-                                        </span>
-                                        <a href="/teatro/show" class="tag is-info">
-                                            <fmt:message key="navbar.meu_teatro"/>
-                                        </a>
-                                    </div>
-
+                        <a class="navbar-item" href="/faces/login.xhtml" rendered="#{not loginBean.logged}">
+                            <span class="icon">
+                                <i class="fas fa-sign-in-alt"></i>
+                            </span>
+                            <span>
+                                <h:outputText value ="#{msg['navbar.login']}" />
+                            </span>
+                        </a>
+                        <span class="navbar-item" rendered="#{loginBean.logged}">
+                            <div class="tags has-addons">
+                                <span class="tag">
+                                    <h:outputText value="Dummy" />
+                                    <!-- <c:out value="${sessionScope.user_email}" /> -->
                                 </span>
-                                <a class="navbar-item" href="/usuario/logout">
-                                    <span class="icon">
-                                        <i class="fas fa-sign-out-alt"></i>
-                                    </span>
-                                    <span>
-                                        <fmt:message key="navbar.logout"/>
-                                    </span>
+                                <a href="/teatro/show" class="tag is-info">
+                                    <h:outputText value="#{msg['navbar.meu_teatro']}" />
                                 </a>
-                            </c:when>
-                        </c:choose>
-     -->
+                            </div>
+                        </span>
+                        <a class="navbar-item" href="/usuario/logout" rendered="#{loginBean.logged}">
+                            <span class="icon">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </span>
+                            <span>
+                                <h:outputText value="#{msg['navbar.logout']}" />
+                            </span>
+                        </a>
                     </div>
                 </div>
             </div>
