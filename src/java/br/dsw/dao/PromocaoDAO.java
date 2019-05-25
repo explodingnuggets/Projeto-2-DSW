@@ -1,6 +1,7 @@
 package br.dsw.dao;
 
 import br.dsw.pojo.Promocao;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -12,6 +13,14 @@ public class PromocaoDAO extends GenericDAO<Promocao> {
         em.close();
         
         return promocao;
+    }
+     @Override
+     public List<Promocao> getAll() {
+        EntityManager em = this.getEntityManager();
+        List<Promocao> promocoes = em.createQuery("SELECT * FROM Promocao", Promocao.class).getResultList();
+        em.close();
+      
+        return promocoes;
     }
     
     @Override

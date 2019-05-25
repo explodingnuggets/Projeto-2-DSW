@@ -1,6 +1,7 @@
 package br.dsw.dao;
 
 import br.dsw.pojo.SiteVendas;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -32,6 +33,14 @@ public class SiteVendasDAO extends GenericDAO<SiteVendas> {
         em.merge(site);
         tx.commit();
         em.close();
+    }
+         @Override
+     public List<SiteVendas> getAll() {
+        EntityManager em = this.getEntityManager();
+        List<SiteVendas> siteVendas = em.createQuery("SELECT * FROM SiteVendas", SiteVendas.class).getResultList();
+        em.close();
+      
+        return siteVendas;
     }
     
     @Override

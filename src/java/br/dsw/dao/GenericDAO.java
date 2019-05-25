@@ -1,5 +1,7 @@
 package br.dsw.dao;
 
+import java.util.List;
+import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -16,6 +18,7 @@ public abstract class GenericDAO<T> {
     }
     
     abstract T get(long id);
+    abstract List<T> getAll();
     abstract void save(T t);
     abstract void update(T t);
     abstract void delete(T t);

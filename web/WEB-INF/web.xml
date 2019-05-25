@@ -47,8 +47,12 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>faces/index.xhtml</welcome-file>
+        <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
+    <context-param>
+        <param-name>primefaces.THEME</param-name>
+        <param-value>bootstrap</param-value>
+    </context-param>
     <error-page>
         <error-code>404</error-code>
         <location>/faces/404.xhtml</location>
@@ -57,4 +61,10 @@
         <error-code>401</error-code>
         <location>/faces/401.xhtml</location>
     </error-page>
+    <resource-ref>
+        <res-ref-name>derbySource</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+        <res-sharing-scope>Shareable</res-sharing-scope>
+    </resource-ref>
 </web-app>

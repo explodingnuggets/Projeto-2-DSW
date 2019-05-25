@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path=""/>
+<Context path="">
+  <Resource auth="Container" driverClassName="org.apache.derby.jdbc.EmbeddedDriver" maxActive="20" maxIdle="10" maxWait="-1" name="derbySource" password="root" type="javax.sql.DataSource" url="jdbc:derby:t2;create=true " username="root"/>
+</Context>
