@@ -6,18 +6,15 @@
       xmlns:p="http://primefaces.org/ui">
 
   <ui:include src="../components/head.xhtml" />
-
     <h:body>
-        <div class="ui-fluid">
-        <ui:include src="../components/navbar.xhtml"/>
-        <section class="section">
-            <div class="container">
-                <ui:insert name="content"/>
-            </div>
-        </section>
 
+
+        <ui:include src="../components/navbar.xhtml"/>
+                <ui:insert name="content"/>
+   
         <ui:include src="../components/footer.xhtml" />
-        </div>
+
+
     </h:body>
 
 </html>

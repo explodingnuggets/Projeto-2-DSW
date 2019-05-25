@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
 @Entity
@@ -29,6 +31,7 @@ public class Promocao implements Serializable {
     private long id;
     private String nome;
     private double preco;
+    @Temporal(TemporalType.DATE) 
     private Date diaHorario;
     
     @ManyToOne

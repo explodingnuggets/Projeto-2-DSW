@@ -1,27 +1,27 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui = "http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:component>
 
         <h:form>  
             <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
-
+                          
             <p:menubar>
                 <p:menuitem value="Inicio" url="/index.xhtml"/>
-                <p:menuitem value="Promocoes" url="/promocoes/listar.xhtml" />
+                <p:menuitem value="Promocoes" url="#{promocaoBean.lista()}" />
                 <p:menuitem value="Teatros" url="/teatros/listar.xhtml" />
                 <p:menuitem value="Sites" url="/sites/listar.xhtml"/>
                 <f:facet name="options">
-                    <h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="login">
+                    <h:outputLink rendered="#{true}" value="javascript:void(0)" onclick="PF('dlg').show();" title="login">
                         Login
                     </h:outputLink>              
                 </f:facet>
             </p:menubar>
+
             <p:dialog header="Login" widgetVar="dlg" resizable="false">
                 <h:panelGrid columns="2" cellpadding="5">
                     <h:outputLabel for="username" value="Username:" />
@@ -37,6 +37,4 @@
                 </h:panelGrid>
             </p:dialog>    
         </h:form>
-
     </ui:component>
-</html>

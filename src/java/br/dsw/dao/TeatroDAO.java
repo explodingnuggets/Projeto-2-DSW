@@ -1,6 +1,7 @@
 package br.dsw.dao;
 
 import br.dsw.pojo.Teatro;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -22,6 +23,14 @@ public class TeatroDAO extends GenericDAO<Teatro> {
         em.persist(teatro);
         tx.commit();
         em.close();
+    }
+             @Override
+     public List<Teatro> getAll() {
+        EntityManager em = this.getEntityManager();
+        List<Teatro> teatros = em.createQuery("SELECT * FROM Teatro", Teatro.class).getResultList();
+        em.close();
+      
+        return teatros;
     }
     
     @Override
