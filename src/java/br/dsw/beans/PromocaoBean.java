@@ -20,10 +20,10 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean
 @SessionScoped
-public class PromocaoBean implements Serializable{
+public class PromocaoBean implements Serializable {
 
     private Promocao promocao;
-    
+
     public String lista() {
         return "/promocoes/listar.xhtml";
     }
@@ -46,7 +46,7 @@ public class PromocaoBean implements Serializable{
         } else {
             dao.update(promocao);
         }
-        return "/index.xhtml";
+        return lista();
     }
 
     public String delete(Promocao promocao) {
@@ -58,21 +58,22 @@ public class PromocaoBean implements Serializable{
     public String volta() {
         return "/index.xhtml?faces-redirect=true";
     }
-    
+
     public List<Promocao> getPromocoes() throws SQLException {
         PromocaoDAO dao = new PromocaoDAO();
         return dao.getAll();
+    
     }
 
     public Promocao getPromocao() {
         return promocao;
     }
-    
+
     /**
      * Creates a new instance of PromocaoBean
      */
     public PromocaoBean() {
         promocao = new Promocao();
     }
-    
+
 }

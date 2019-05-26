@@ -5,6 +5,7 @@
  */
 package br.dsw.beans;
 
+import br.dsw.dao.SiteVendasDAO;
 import br.dsw.pojo.SiteVendas;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -18,15 +19,21 @@ import javax.faces.convert.FacesConverter;
 @FacesConverter(value = "SiteConverter")
 public class SiteConverter implements Converter {
 
+    private SiteVendasDAO siteDAO;
+    public SiteConverter() {
+         siteDAO = new SiteVendasDAO();
+    }
+    
     @Override
     public Object getAsObject(FacesContext fc, UIComponent uic, String string) {
+        long id = 0;
         try {
             String[] splitName = string.split("@ ", 2);
-            long id = Long.parseLong(splitName[0]);
+            id = Long.parseLong(splitName[0]);
         } catch (Exception e) {
 
         }
-        return new SiteVendas();
+        return siteDAO.get(id);
     }
 
     @Override

@@ -47,7 +47,7 @@ public class Teatro extends Usuario{
 
     @Override
     public String toString() {
-        return "Teatro{" + "nome=" + nome + '}';
+        return getId() +"@"+ nome;
     }
     
 }
