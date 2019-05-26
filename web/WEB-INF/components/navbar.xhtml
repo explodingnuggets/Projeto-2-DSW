@@ -11,13 +11,13 @@
             <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
                           
             <p:menubar>
-                <p:menuitem value="Inicio" url="/index.xhtml"/>
-                <p:menuitem value="Promocoes" url="#{promocaoBean.lista()}" />
-                <p:menuitem value="Teatros" url="/teatros/listar.xhtml" />
-                <p:menuitem value="Sites" url="/sites/listar.xhtml"/>
+                <p:menuitem value="#{msg['navbar.inicio']}" url="/index.xhtml"/>
+                <p:menuitem value="#{msg['navbar.promocoes']}" url="#{promocaoBean.lista()}" />
+                <p:menuitem value="#{msg['navbar.teatros']}" url="/teatros/listar.xhtml" />
+                <p:menuitem value="#{msg['navbar.sites']}" url="/sites/listar.xhtml"/>
                 <f:facet name="options">
                     <h:outputLink rendered="#{true}" value="javascript:void(0)" onclick="PF('dlg').show();" title="login">
-                        Login
+                       #{msg['navbar.login']} 
                     </h:outputLink>              
                 </f:facet>
             </p:menubar>
