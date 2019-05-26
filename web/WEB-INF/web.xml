@@ -14,9 +14,8 @@
     </filter>
     <filter-mapping>
         <filter-name>AdminFilter</filter-name>
-        <url-pattern>/site/list</url-pattern>
-        <url-pattern>/site/delete</url-pattern>
-        <url-pattern>/site/update</url-pattern>
+        <url-pattern>/sites/*</url-pattern>
+        <url-pattern>/teatros/alterar.xhtml</url-pattern>
     </filter-mapping>
     <filter>
         <filter-name>LoggedFilter</filter-name>
@@ -24,13 +23,7 @@
     </filter>
     <filter-mapping>
         <filter-name>LoggedFilter</filter-name>
-        <url-pattern>/ingresso/por-site</url-pattern>
-        <url-pattern>/ingresso/delete</url-pattern>
-        <url-pattern>/ingresso/update</url-pattern>
-        <url-pattern>/site/delete</url-pattern>
-        <url-pattern>/site/update</url-pattern>
-        <url-pattern>/teatro/delete</url-pattern>
-        <url-pattern>/teatro/update</url-pattern>
+        <url-pattern>/promocoes/alterar.xhtml</url-pattern>
     </filter-mapping>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
@@ -51,7 +44,7 @@
     </welcome-file-list>
     <context-param>
         <param-name>primefaces.THEME</param-name>
-        <param-value>bootstrap</param-value>
+        <param-value>admin</param-value>
     </context-param>
     <error-page>
         <error-code>404</error-code>

@@ -18,7 +18,7 @@ public class Permissoes {
         Object userId = session.getAttribute("user_id");
         if(userId != null) {
             UsuarioDAO dao = new UsuarioDAO();
-            return dao != null;
+            return dao.get((long)userId) != null;
         }
         
         return false;

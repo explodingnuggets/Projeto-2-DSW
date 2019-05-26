@@ -9,17 +9,17 @@
 
     <h:form>  
         <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
-
-        <p:menubar>
+        
+        <p:menubar >
             <p:menuitem value="Inicio" url="/index.xhtml"/>
             <p:menuitem value="Promocoes" url="#{promocaoBean.lista()}" />
             <p:menuitem value="Teatros" url="/teatros/listar.xhtml" />
             <p:menuitem value="Sites" url="/sites/listar.xhtml"/>
             <f:facet name="options">
-                <h:outputLink rendered="#{usuarioBean.usuario.id == -1}" value="javascript:void(0)" onclick="PF('login').show();" title="login">
-                    Login
-                </h:outputLink>  
+                <p:button rendered="#{usuarioBean.usuario.id == -1}"  href="javascript:void(0)" onclick="PF('login').show();" value="Login" title="login"/>
+               
                 <h:outputText value="#{usuarioBean.usuario.email}"/>
+
                 <p:commandButton rendered="#{usuarioBean.usuario.id != -1}" value="Sair" ajax="false" action="#{usuarioBean.logout()}">
                 </p:commandButton>       
             </f:facet>
@@ -29,10 +29,13 @@
         <p:dialog rendered="#{usuarioBean.usuario.id == -1}" header="Login" widgetVar="login" resizable="false">
             <h:panelGrid columns="2" cellpadding="5">
                 <h:outputLabel for="username" value="Username:" />
-                <p:inputText id="username" value="#{usuarioBean.usuario.email}" required="true" label="Usuario" />
+                <p:inputText id="username" value="#{usuarioBean.usuario.email}" required="true" label="Email"  validator="EmailValidator" />
 
                 <h:outputLabel for="password" value="Password:" />
-                <p:password id="password" value="#{usuarioBean.usuario.senha}" required="true" label="Senha" />
+                <p:password id="password" value="#{usuarioBean.usuario.senha}" required="true" label="Senha" validator="PasswordValidator" />
+
+                <h:outputLabel for="admin" value="Como admin?" />
+                <p:selectBooleanCheckbox id="admin" value="#{usuarioBean.usuario.admin}" required="true" label="Admin" />
 
                 <f:facet name="footer">
                     <p:commandButton value="Login" ajax="false"  action="#{usuarioBean.login}"
@@ -41,6 +44,7 @@
                                      />
                 </f:facet>  
             </h:panelGrid>
-        </p:dialog>   
+        </p:dialog>  
+ 
     </h:form>
 </ui:component>

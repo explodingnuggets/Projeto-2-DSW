@@ -15,11 +15,11 @@
             <p:message for="nome" display="icon" /> 
 
             <p:outputLabel for="url" value="Url do site" />
-            <p:inputText value="#{siteVendasBean.siteVendas.url}"  id="url"  />
+            <p:inputText value="#{siteVendasBean.siteVendas.url}"  id="url" validator="URLValidator"  />
             <p:message for="url" display="icon" />
             
             <p:outputLabel for="telefone" value="Telefone do site" />
-            <p:inputText value="#{siteVendasBean.siteVendas.telefone}" id="telefone" />
+            <p:inputText value="#{siteVendasBean.siteVendas.telefone}" id="telefone" validator="TelefoneValidator" />
             <p:message for="telefone" display="icon" /> 
 
 
