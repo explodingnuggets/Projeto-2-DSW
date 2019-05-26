@@ -37,4 +37,10 @@ public class Teatro extends Usuario{
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
+
+    @Override
+    public String toString() {
+        return "Teatro{" + "nome=" + nome + '}';
+    }
+    
 }

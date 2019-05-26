@@ -7,33 +7,36 @@ package br.dsw.beans;
 
 import br.dsw.dao.PromocaoDAO;
 import br.dsw.pojo.Promocao;
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 /**
  *
  * @author pedro
  */
 @ManagedBean
-public class PromocaoBean {
+@SessionScoped
+public class PromocaoBean implements Serializable{
 
-        private Promocao promocao;
+    private Promocao promocao;
     
     public String lista() {
-        return "promocoes/listar.xhtml";
+        return "/promocoes/listar.xhtml";
     }
 
     public String cadastra() {
         promocao = new Promocao();
-        return "alterar.xhtml";
+        return "/promocoes/alterar.xhtml";
     }
 
     public String edita(Long id) {
         PromocaoDAO dao = new PromocaoDAO();
         promocao = dao.get(id);
-        return "alterar.xhtml";
+        return "/promocoes/alterar.xhtml";
     }
 
     public String salva() {
@@ -43,13 +46,14 @@ public class PromocaoBean {
         } else {
             dao.update(promocao);
         }
-        return "index.xhtml";
+        promocao = null;
+        return "/index.xhtml";
     }
 
     public String delete(Promocao promocao) {
         PromocaoDAO dao = new PromocaoDAO();
         dao.delete(promocao);
-        return "index.xhtml";
+        return "/index.xhtml";
     }
 
     public String volta() {

@@ -34,4 +34,10 @@ public class Usuario implements Serializable {
     public boolean getAdmin() { return this.isAdmin; }
     
     public void setAdmin(boolean admin) { this.isAdmin = admin; }
+
+    @Override
+    public String toString() {
+        return  String.valueOf(id);
+    }
+    
 }
