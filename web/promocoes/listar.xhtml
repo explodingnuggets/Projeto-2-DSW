@@ -27,13 +27,11 @@
                     </p:column>
 
                     <p:column headerText="Acoes">  
-                        <h:commandButton action = "#{promocaoBean.delete(promocao)}" value="deletar" 
-                                         onclick="return confirm('confirmar');"
-                                         class="btn btn-danger">  
-                        </h:commandButton>  
-                        <h:commandButton action = "#{promocaoBean.edita(promocao.id)}" value="editar"
-                                         class="btn btn-danger">  
-                        </h:commandButton>  
+                        <p:commandButton rendered="#{usuarioBean.usuario.admin == true || usuarioBean.usuario.id == promocao.teatro.id}" action = "#{promocaoBean.delete(promocao)}" ajax="false" value="deletar" 
+                                         onclick="return confirm('confirmar');"/> 
+                        <p:commandButton rendered="#{usuarioBean.usuario.admin == true || usuarioBean.usuario.id == promocao.teatro.id}" action = "#{promocaoBean.edita(promocao.id)}" ajax="false" value="editar"/>  
+                        <p:commandButton  ajax="false" value="Comprar"/>  
+
                     </p:column>
                 </p:dataTable>  
                 <p:commandButton value="Cadastrar" action = "#{promocaoBean.cadastra}" ajax="false"/>

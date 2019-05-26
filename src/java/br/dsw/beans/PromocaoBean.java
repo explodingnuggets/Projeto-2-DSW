@@ -53,7 +53,7 @@ public class PromocaoBean implements Serializable {
     public String delete(Promocao promocao) {
         PromocaoDAO dao = new PromocaoDAO();
         dao.delete(promocao);
-        return "/index.xhtml";
+        return lista();
     }
 
     public String volta() {

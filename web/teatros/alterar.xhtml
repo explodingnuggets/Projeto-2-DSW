@@ -8,19 +8,19 @@
         <ui:param name="titulo" value="Alterar/cadastrar teatro" />
 
         <ui:define name="form_content">  
-            <h:inputHidden  value="#{teatroBean.teatro.id}" id="id"/>
             
             <p:outputLabel for="cnpj" value="CNPJ do teatro" />
-            <p:inputText value="#{teatroBean.teatro.cnpj}" id="cnpj"/>
+            <p:inputText value="#{teatroBean.teatro.cnpj}" id="cnpj" validator="CNPJValidator" required="true"/>
             <p:message for="cnpj" display="icon" /> 
 
             <p:outputLabel for="nome" value="Nome do teatro" />
-            <p:inputText value="#{teatroBean.teatro.nome}"  id="nome"  />
+            <p:inputText value="#{teatroBean.teatro.nome}"  id="nome" required="true" />
             <p:message for="nome" display="icon" /> 
 
             <p:outputLabel for="cidade" value="Cidade do teatro" />
-            <p:inputText value="#{teatroBean.teatro.cidade}" id="cidade"/>
+            <p:inputText value="#{teatroBean.teatro.cidade}" id="cidade" required="true"/>
             <p:message for="cidade" display="icon" /> 
+            <h:inputHidden  value="#{teatroBean.teatro.id}" id="id"/>
 
             <p:commandButton ajax="false" action="#{teatroBean.salva}" value="Cadastrar"/>                   
         </ui:define>

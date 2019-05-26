@@ -7,6 +7,7 @@ package br.dsw.pojo;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -43,10 +44,10 @@ public class Promocao implements Serializable {
     @Temporal(TemporalType.DATE) 
     private Date diaHorario;
     
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
     private SiteVendas siteVendas;
     
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.EAGER,  cascade = CascadeType.ALL)
     private Teatro teatro;
 
     public long getId() {

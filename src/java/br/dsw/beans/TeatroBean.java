@@ -6,6 +6,7 @@
 package br.dsw.beans;
 
 import br.dsw.dao.TeatroDAO;
+import br.dsw.dao.UsuarioDAO;
 import br.dsw.pojo.Teatro;
 import java.sql.SQLException;
 import java.util.List;

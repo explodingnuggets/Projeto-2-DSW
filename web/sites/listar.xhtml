@@ -20,14 +20,10 @@
                         <h:outputText value="#{site.telefone}"/>  
                     </p:column>
 
-                    <p:column headerText="Acoes">  
-                        <h:commandButton action = "#{siteVendasBean.delete(site)}" value="deletar" 
-                                         onclick="return confirm('confirmar');"
-                                         class="btn btn-danger">  
-                        </h:commandButton>  
-                        <h:commandButton action = "#{siteVendasBean.edita(site.id)}" value="editar"
-                                         class="btn btn-danger">  
-                        </h:commandButton>  
+                       <p:column headerText="Acoes">  
+                        <p:commandButton action = "#{siteVendasBean.delete(site)}" ajax="false" value="deletar" 
+                                         onclick="return confirm('confirmar');"/> 
+                        <p:commandButton action = "#{siteVendasBean.edita(site.id)}" ajax="false" value="editar"/>  
                     </p:column>
                 </p:dataTable>  
                 <p:commandButton value="Cadastrar" action = "#{siteVendasBean.cadastra}" ajax="false"/>

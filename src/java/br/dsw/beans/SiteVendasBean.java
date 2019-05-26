@@ -50,7 +50,7 @@ public class SiteVendasBean {
     public String delete(SiteVendas siteVendas) {
         SiteVendasDAO dao = new SiteVendasDAO();
         dao.delete(siteVendas);
-        return "/index.xhtml";
+        return lista();
     }
 
     public String volta() {
