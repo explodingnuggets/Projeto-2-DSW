@@ -13,7 +13,7 @@ import javax.persistence.NamedQuery;
 public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private long id;
+    private long id = -1;
     @Column(unique=true)
     private String email;
     private String senha;

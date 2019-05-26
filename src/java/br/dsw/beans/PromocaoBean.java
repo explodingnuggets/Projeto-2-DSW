@@ -46,7 +46,6 @@ public class PromocaoBean implements Serializable{
         } else {
             dao.update(promocao);
         }
-        promocao = null;
         return "/index.xhtml";
     }
 
@@ -73,6 +72,7 @@ public class PromocaoBean implements Serializable{
      * Creates a new instance of PromocaoBean
      */
     public PromocaoBean() {
+        promocao = new Promocao();
     }
     
 }

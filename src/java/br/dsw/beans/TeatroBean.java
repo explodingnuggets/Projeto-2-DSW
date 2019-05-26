@@ -18,10 +18,10 @@ import javax.faces.bean.RequestScoped;
  */
 @ManagedBean
 @RequestScoped
-public class TeatroBeans {
+public class TeatroBean {
 
- private Teatro teatro;
-    
+    private Teatro teatro;
+
     public String lista() {
         return "/teatros/listar.xhtml";
     }
@@ -44,7 +44,6 @@ public class TeatroBeans {
         } else {
             dao.update(teatro);
         }
-        teatro = null;
         return "/index.xhtml";
     }
 
@@ -57,7 +56,7 @@ public class TeatroBeans {
     public String volta() {
         return "/index.xhtml?faces-redirect=true";
     }
-    
+
     public List<Teatro> getTeatros() throws SQLException {
         TeatroDAO dao = new TeatroDAO();
         return dao.getAll();
@@ -67,6 +66,7 @@ public class TeatroBeans {
         return teatro;
     }
 
-    public TeatroBeans() {
+    public TeatroBean() {
+        teatro = new Teatro();
     }
 }

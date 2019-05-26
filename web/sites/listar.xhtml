@@ -8,29 +8,29 @@
 
         <ui:define name="content">
             <h:form>
-                <p:dataTable value="#{promocaoBean.promocoes}" var="promocao"   
+                <p:dataTable value="#{siteVendasBean.sitesVendas}" var="site"   
                              class="table table-striped table-hover table-bordered">  
-                    <p:column headerText="Id">  
-                        <h:outputText value="#{promocao.id}"/>  
+                    <p:column headerText="URL">  
+                        <h:outputText value="#{site.url}"/>  
                     </p:column>  
                     <p:column headerText="Nome">  
-                        <h:outputText value="#{promocao.nome}"/>  
+                        <h:outputText value="#{site.nome}"/>  
                     </p:column>  
-                    <p:column headerText="Preco">  
-                        <h:outputText value="#{promocao.preco}"/>  
+                    <p:column headerText="Telefone">  
+                        <h:outputText value="#{site.telefone}"/>  
                     </p:column>
 
                     <p:column headerText="Acoes">  
-                        <h:commandButton action = "#{promocaoBean.delete(promocao)}" value="deletar" 
+                        <h:commandButton action = "#{siteVendasBean.delete(site)}" value="deletar" 
                                          onclick="return confirm('confirmar');"
                                          class="btn btn-danger">  
                         </h:commandButton>  
-                        <h:commandButton action = "#{promocaoBean.edita(promocao.id)}" value="edita"
+                        <h:commandButton action = "#{siteVendasBean.edita(site.id)}" value="editar"
                                          class="btn btn-danger">  
                         </h:commandButton>  
                     </p:column>
                 </p:dataTable>  
-                <p:commandButton value="Cadastrar" action = "#{promocaoBean.cadastra}" ajax="false"/>
+                <p:commandButton value="Cadastrar" action = "#{siteVendasBean.cadastra}" ajax="false"/>
             </h:form>
         </ui:define>
     </ui:composition>

@@ -31,6 +31,8 @@ import javax.persistence.UniqueConstraint;
 )
 public class Promocao implements Serializable {
 
+ 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

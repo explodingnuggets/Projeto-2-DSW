@@ -44,7 +44,6 @@ public class SiteVendasBean {
         } else {
             dao.update(siteVendas);
         }
-        siteVendas = null;
         return "/index.xhtml";
     }
 
@@ -69,5 +68,6 @@ public class SiteVendasBean {
     
  
     public SiteVendasBean() {
+        siteVendas = new SiteVendas();
     }
 }
