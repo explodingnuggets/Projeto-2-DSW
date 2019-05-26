@@ -13,20 +13,20 @@
                     <p:column headerText="Id">  
                         <h:outputText value="#{promocao.id}"/>  
                     </p:column>  
-                    <p:column headerText="Nome">  
+                    <p:column headerText="#{msg['promocoes.listar.nome']}">
                         <h:outputText value="#{promocao.nome}"/>  
                     </p:column>  
-                    <p:column headerText="Preco">  
+                    <p:column headerText="#{msg['promocoes.listar.price']}">  
                         <h:outputText value="#{promocao.preco}"/>  
                     </p:column>
-                    <p:column headerText="Teatro">  
+                    <p:column headerText="#{msg['promocoes.listar.teatro']}">  
                         <h:outputText converter="TeatroConverter" value="#{promocao.teatro}"/>  
                     </p:column>
-                    <p:column headerText="Site">  
+                    <p:column headerText="#{msg['promocoes.listar.site']}">  
                         <h:outputText  converter="SiteConverter" value="#{promocao.siteVendas}"/>  
                     </p:column>
 
-                    <p:column headerText="Acoes">  
+                    <p:column headerText="#{msg['promocoes.listar.actions']}">  
                         <h:commandButton action = "#{promocaoBean.delete(promocao)}" value="deletar" 
                                          onclick="return confirm('confirmar');"
                                          class="btn btn-danger">  
