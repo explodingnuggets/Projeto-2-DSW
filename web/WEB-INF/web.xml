@@ -61,4 +61,8 @@
         <error-code>401</error-code>
         <location>/faces/401.xhtml</location>
     </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/faces/500.xhtml</location>
+    </error-page>
 </web-app>
