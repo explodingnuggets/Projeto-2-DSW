@@ -5,6 +5,7 @@
  */
 package br.dsw.beans;
 
+import br.dsw.dao.TeatroDAO;
 import br.dsw.pojo.Teatro;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -18,14 +19,21 @@ import javax.faces.convert.FacesConverter;
 @FacesConverter(value = "TeatroConverter")
 public class TeatroConverter implements Converter {
 
+    private TeatroDAO teatroDao;
+    public TeatroConverter() {
+         teatroDao = new TeatroDAO();
+    }
+    
+
     @Override
     public Object getAsObject(FacesContext fc, UIComponent uic, String string) {
+        long id = 0;
         try {
             String[] splitName = string.split("@ ", 2);
-            long id = Long.parseLong(splitName[0]);
+            id = Long.parseLong(splitName[0]);
         } catch (Exception e) {
         }
-        return new Teatro();
+        return teatroDao.get(id);
     }
 
     @Override

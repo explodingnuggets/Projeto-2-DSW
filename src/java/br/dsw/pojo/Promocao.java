@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -21,8 +22,8 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(
     uniqueConstraints={
-        @UniqueConstraint(columnNames={"site", "diaHorario"}),
-        @UniqueConstraint(columnNames={"teatro", "diaHorario"})
+        @UniqueConstraint(columnNames={"SITEVENDAS_ID", "diaHorario"}),
+        @UniqueConstraint(columnNames={"TEATRO_ID", "diaHorario"})
     }
 )
 @NamedQuery(
@@ -42,7 +43,8 @@ public class Promocao implements Serializable {
     private Date diaHorario;
     
     @ManyToOne
-    private SiteVendas site;
+    private SiteVendas siteVendas;
+    
     @ManyToOne
     private Teatro teatro;
 
@@ -78,12 +80,12 @@ public class Promocao implements Serializable {
         this.diaHorario = diaHorario;
     }
 
-    public SiteVendas getSite() {
-        return site;
+    public SiteVendas getSiteVendas() {
+        return siteVendas;
     }
 
-    public void setSite(SiteVendas site) {
-        this.site = site;
+    public void setSiteVendas(SiteVendas site) {
+        this.siteVendas = site;
     }
 
     public Teatro getTeatro() {

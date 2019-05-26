@@ -2,35 +2,27 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
-          
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <ui:composition template="/WEB-INF/templates/default.xhtml">
 
-        <ui:define name="content">  
-            <h:form>
-                <h:inputHidden  value="#{teatroBean.teatro.id}" id="id"/>
-                <div class="row">
-                    <div class="input-field col s6">                            
-                        <h:inputText value="#{teatroBean.teatro.cnpj}" id="cnpj"/>
-                        <label for="cnpj">CNPJ</label>                         
-                    </div>
-                    <div class="input-field col s6">                          
-                        <h:inputText value="#{teatroBean.teatro.nome}"  id="nome"  />
-                        <label for="nome">nome</label>                         
-                    </div>
-                </div>
-                <div class="row">                           
-                    <div class="input-field col s12">    
-                        <h:inputText value="#{teatroBean.teatro.cidade}" id="cidade" >
-                        </h:inputText>
-                        <label for="cidade">cidade</label>                           
-                    </div>
-                </div>
-  
-      
-                <div class="row center-align">                                               
-                    <h:commandButton class="btn center-align waves-effect waves-light red lighten-1 center-align" action="#{teatroBean.salva}" value="Cadastrar"></h:commandButton>                      
-                </div>
-            </h:form></ui:define>
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/WEB-INF/templates/form.xhtml">
+        <ui:param name="titulo" value="Alterar/cadastrar teatro" />
+
+        <ui:define name="form_content">  
+            <h:inputHidden  value="#{teatroBean.teatro.id}" id="id"/>
+            
+            <p:outputLabel for="cnpj" value="CNPJ do teatro" />
+            <p:inputText value="#{teatroBean.teatro.cnpj}" id="cnpj"/>
+            <p:message for="cnpj" display="icon" /> 
+
+            <p:outputLabel for="nome" value="Nome do teatro" />
+            <p:inputText value="#{teatroBean.teatro.nome}"  id="nome"  />
+            <p:message for="nome" display="icon" /> 
+
+            <p:outputLabel for="cidade" value="Cidade do teatro" />
+            <p:inputText value="#{teatroBean.teatro.cidade}" id="cidade"/>
+            <p:message for="cidade" display="icon" /> 
+
+            <p:commandButton ajax="false" action="#{teatroBean.salva}" value="Cadastrar"/>                   
+        </ui:define>
     </ui:composition>
 </html>

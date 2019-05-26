@@ -2,51 +2,47 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
-          
+
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <ui:composition template="/WEB-INF/templates/default.xhtml">
+    <ui:composition template="/WEB-INF/templates/form.xhtml">
+        <ui:param name="titulo" value="Alterar/cadastrar promocao   " />
 
-        <ui:define name="content">  
-            <h:form>                 
+        <ui:define name="form_content">  
+
                 <h:inputHidden  value="#{promocaoBean.promocao.id}" id="id"/>
+                
+                <p:outputLabel for="nome" value="Nome da promoćao" />
+                <p:inputText value="#{promocaoBean.promocao.nome}" id="nome"/>
+                <p:message for="nome" display="icon" />
 
-                <div class="row">
-                    <div class="input-field col s6">                            
-                        <h:inputText value="#{promocaoBean.promocao.nome}" id="first_name"/>
-                        <label for="first_name">Nome</label>                         
-                    </div>
-                    <div class="input-field col s6">                          
-                        <h:inputText value="#{promocaoBean.promocao.preco}"  id="preco"  />
-                        <label for="preco">Preco</label>                         
-                    </div>
-                </div>
-                <div class="row">                           
-                    <div class="input-field col s12">    
-                        <h:inputText value="#{promocaoBean.promocao.diaHorario}" id="diaHorario" >
-                            <f:convertDateTime pattern="d/M/yyyy"></f:convertDateTime>
-                        </h:inputText>
-                        <label for="diaHorario">diaHorario</label>                           
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s6">                                          
-                        <h:inputText value="#{promocaoBean.promocao.site}" id="site">
-                            <f:converter converterId="SiteConverter"/>
-                        </h:inputText>
-                        <label for="site">Site</label>                           
-                    </div>
-                    <div class="input-field col s6">                                                       
-                        <h:inputText value="#{promocaoBean.promocao.teatro}" id="teatro">
-                                                    <f:converter converterId="TeatroConverter"/>
+                <p:outputLabel for="preco" value="Preco" />
+                <p:inputText value="#{promocaoBean.promocao.preco}"  id="preco"  />
+                <p:message for="preco" display="icon" />
 
-                        </h:inputText>
-                        <label for="teatro">Teatro</label>                                                      
-                    </div>
-                </div>
-      
-                <div class="row center-align">                                               
-                    <h:commandButton class="btn center-align waves-effect waves-light red lighten-1 center-align" action="#{promocaoBean.salva()}" value="Cadastrar"></h:commandButton>                      
-                </div>
-            </h:form></ui:define>
+                <p:outputLabel for="diaHorario" value="Horario do evento" />
+                <p:inputText value="#{promocaoBean.promocao.diaHorario}" id="diaHorario" >
+                    <f:convertDateTime pattern="d/M/yyyy"></f:convertDateTime>
+                </p:inputText>
+                <p:message for="diaHorario" display="icon" />
+
+                <p:outputLabel for="site" value="Site do evento" />
+                <p:selectOneMenu id="site" value="#{promocaoBean.promocao.siteVendas}" converter="SiteConverter">
+                    <f:selectItems value="#{siteVendasBean.sitesVendas}">
+                    </f:selectItems>
+                </p:selectOneMenu>
+                <p:message for="site" display="icon" />
+
+                <p:outputLabel for="teatro" value="Teatro do evento" />
+                <p:selectOneMenu id="teatro" value="#{promocaoBean.promocao.teatro}" converter="TeatroConverter">
+                    <f:selectItems value="#{teatroBean.teatros}">
+                    </f:selectItems>
+                </p:selectOneMenu>
+                <p:message for="teatro" display="icon" />
+
+
+
+                <p:commandButton ajax="false" action="#{promocaoBean.salva()}" value="Cadastrar"></p:commandButton>                      
+
+            </ui:define>
     </ui:composition>
 </html>

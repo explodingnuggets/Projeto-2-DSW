@@ -19,6 +19,12 @@
                     <p:column headerText="Preco">  
                         <h:outputText value="#{promocao.preco}"/>  
                     </p:column>
+                    <p:column headerText="Teatro">  
+                        <h:outputText converter="TeatroConverter" value="#{promocao.teatro}"/>  
+                    </p:column>
+                    <p:column headerText="Site">  
+                        <h:outputText  converter="SiteConverter" value="#{promocao.siteVendas}"/>  
+                    </p:column>
 
                     <p:column headerText="Acoes">  
                         <h:commandButton action = "#{promocaoBean.delete(promocao)}" value="deletar" 

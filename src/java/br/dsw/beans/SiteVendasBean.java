@@ -44,7 +44,7 @@ public class SiteVendasBean {
         } else {
             dao.update(siteVendas);
         }
-        return "/index.xhtml";
+        return lista();
     }
 
     public String delete(SiteVendas siteVendas) {

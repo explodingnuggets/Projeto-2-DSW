@@ -2,36 +2,29 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
-          
+
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <ui:composition template="/WEB-INF/templates/default.xhtml">
+    <ui:composition template="/WEB-INF/templates/form.xhtml">
+        <ui:param name="titulo" value="Alterar/cadastrar site" />
 
-        <ui:define name="content">  
-            <h:form>                   
-                <h:inputHidden  value="#{siteVendasBean.siteVendas.id}" id="id"/>
+        <ui:define name="form_content">                
+            <h:inputHidden  value="#{siteVendasBean.siteVendas.id}" id="id"/>
 
-                <div class="row">
-                    <div class="input-field col s6">                            
-                        <h:inputText value="#{siteVendasBean.siteVendas.nome}" id="nome"/>
-                        <label for="nome">Nome</label>                         
-                    </div>
-                    <div class="input-field col s6">                          
-                        <h:inputText value="#{siteVendasBean.siteVendas.url}"  id="url"  />
-                        <label for="url">url</label>                         
-                    </div>
-                </div>
-                <div class="row">                           
-                    <div class="input-field col s12">    
-                        <h:inputText value="#{siteVendasBean.siteVendas.telefone}" id="telefone" >
-                        </h:inputText>
-                        <label for="telefone">telefone</label>                           
-                    </div>
-                </div>
-  
-      
-                <div class="row center-align">                                               
-                    <h:commandButton class="btn center-align waves-effect waves-light red lighten-1 center-align" action="#{siteVendasBean.salva()}" value="Cadastrar"></h:commandButton>                      
-                </div>
-            </h:form></ui:define>
+            <p:outputLabel for="nome" value="Nome do site" />
+            <p:inputText value="#{siteVendasBean.siteVendas.nome}" id="nome"/>
+            <p:message for="nome" display="icon" /> 
+
+            <p:outputLabel for="url" value="Url do site" />
+            <p:inputText value="#{siteVendasBean.siteVendas.url}"  id="url"  />
+            <p:message for="url" display="icon" />
+            
+            <p:outputLabel for="telefone" value="Telefone do site" />
+            <p:inputText value="#{siteVendasBean.siteVendas.telefone}" id="telefone" />
+            <p:message for="telefone" display="icon" /> 
+
+
+            <p:commandButton action="#{siteVendasBean.salva()}" ajax="false" value="Cadastrar"></p:commandButton>                      
+
+        </ui:define>
     </ui:composition>
 </html>

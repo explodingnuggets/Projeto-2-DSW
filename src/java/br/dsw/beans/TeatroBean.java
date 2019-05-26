@@ -44,7 +44,7 @@ public class TeatroBean {
         } else {
             dao.update(teatro);
         }
-        return "/index.xhtml";
+        return lista();
     }
 
     public String delete(Teatro teatro) {
