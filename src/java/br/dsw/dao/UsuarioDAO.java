@@ -2,6 +2,7 @@ package br.dsw.dao;
 
 import br.dsw.pojo.Usuario;
 import java.util.List;
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
@@ -22,7 +23,7 @@ public class UsuarioDAO extends GenericDAO<Usuario> {
         usuario.setId(-1);
         EntityManager em = this.getEntityManager();
         try {
-            usuario = em.createNamedQuery("Usuario.findByEmailAndPassword", Usuario.class).getSingleResult();
+            usuario = em.createNamedQuery("Usuario.findByEmailAndPassword", Usuario.class).setParameter("email", email).setParameter("senha", senha).getSingleResult();
         } catch (NoResultException e) {
             throw e;
         }
@@ -31,12 +32,16 @@ public class UsuarioDAO extends GenericDAO<Usuario> {
     }
 
     @Override
-    public void save(Usuario usuario) {
+    public void save(Usuario usuario) throws EntityExistsException {
         EntityManager em = this.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
+        try{
         em.persist(usuario);
         tx.commit();
+        } catch(EntityExistsException e){
+           throw e; 
+        }
         em.close();
     }
 

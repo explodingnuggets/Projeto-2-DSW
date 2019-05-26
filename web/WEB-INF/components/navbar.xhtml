@@ -1,40 +1,46 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:component xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui = "http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+              xmlns:h="http://xmlns.jcp.org/jsf/html"
+              xmlns:ui = "http://java.sun.com/jsf/facelets"
+              xmlns:p="http://primefaces.org/ui"
+              xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 
-        <h:form>  
-            <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
-                          
-            <p:menubar>
-                <p:menuitem value="Inicio" url="/index.xhtml"/>
-                <p:menuitem value="Promocoes" url="#{promocaoBean.lista()}" />
-                <p:menuitem value="Teatros" url="/teatros/listar.xhtml" />
-                <p:menuitem value="Sites" url="/sites/listar.xhtml"/>
-                <f:facet name="options">
-                    <h:outputLink rendered="#{true}" value="javascript:void(0)" onclick="PF('dlg').show();" title="login">
-                        Login
-                    </h:outputLink>              
-                </f:facet>
-            </p:menubar>
+    <h:form>  
+        <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
 
-            <p:dialog header="Login" widgetVar="dlg" resizable="false">
-                <h:panelGrid columns="2" cellpadding="5">
-                    <h:outputLabel for="username" value="Username:" />
-                    <p:inputText id="username" value="#{usuarioBean.usuario.email}" required="true" label="Usuario" />
+        <p:menubar>
+            <p:menuitem value="Inicio" url="/index.xhtml"/>
+            <p:menuitem value="Promocoes" url="#{promocaoBean.lista()}" />
+            <p:menuitem value="Teatros" url="/teatros/listar.xhtml" />
+            <p:menuitem value="Sites" url="/sites/listar.xhtml"/>
+            <f:facet name="options">
+                <h:outputLink rendered="#{usuarioBean.usuario.id == -1}" value="javascript:void(0)" onclick="PF('login').show();" title="login">
+                    Login
+                </h:outputLink>  
+                <h:outputText value="#{usuarioBean.usuario.email}"/>
+                <p:commandButton rendered="#{usuarioBean.usuario.id != -1}" value="Sair" ajax="false" action="#{usuarioBean.logout()}">
+                </p:commandButton>       
+            </f:facet>
+        </p:menubar>
 
-                    <h:outputLabel for="password" value="Password:" />
-                    <p:password id="password" value="#{usuarioBean.usuario.senha}" required="true" label="Senha" />
 
-                    <f:facet name="footer">
-                        <p:commandButton value="Login" ajax="false"  action="#{usuarioBean.login}"
-                                         />
-                    </f:facet>  
-                </h:panelGrid>
-            </p:dialog>    
-        </h:form>
-    </ui:component>
+        <p:dialog rendered="#{usuarioBean.usuario.id == -1}" header="Login" widgetVar="login" resizable="false">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="username" value="Username:" />
+                <p:inputText id="username" value="#{usuarioBean.usuario.email}" required="true" label="Usuario" />
+
+                <h:outputLabel for="password" value="Password:" />
+                <p:password id="password" value="#{usuarioBean.usuario.senha}" required="true" label="Senha" />
+
+                <f:facet name="footer">
+                    <p:commandButton value="Login" ajax="false"  action="#{usuarioBean.login}"
+                                     />
+                    <p:commandButton value="Create" ajax="false"  action="#{usuarioBean.create}"
+                                     />
+                </f:facet>  
+            </h:panelGrid>
+        </p:dialog>   
+    </h:form>
+</ui:component>
