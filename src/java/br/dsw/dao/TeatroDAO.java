@@ -27,7 +27,7 @@ public class TeatroDAO extends GenericDAO<Teatro> {
              @Override
      public List<Teatro> getAll() {
         EntityManager em = this.getEntityManager();
-        List<Teatro> teatros = em.createQuery("SELECT * FROM Teatro", Teatro.class).getResultList();
+        List<Teatro> teatros = em.createNamedQuery("Teatro.findAll", Teatro.class).getResultList();
         em.close();
       
         return teatros;

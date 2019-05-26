@@ -2,9 +2,36 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
->
-  <ui:composition template="/WEB-INF/templates/default.xhtml">
+          
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/WEB-INF/templates/default.xhtml">
 
-      <ui:define name="content">alterar sites</ui:define>
-  </ui:composition>
+        <ui:define name="content">  
+            <h:form>                   
+                <h:inputHidden  value="#{siteVendasBean.siteVendas.id}" id="id"/>
+
+                <div class="row">
+                    <div class="input-field col s6">                            
+                        <h:inputText value="#{siteVendasBean.siteVendas.nome}" id="nome"/>
+                        <label for="nome">Nome</label>                         
+                    </div>
+                    <div class="input-field col s6">                          
+                        <h:inputText value="#{siteVendasBean.siteVendas.url}"  id="url"  />
+                        <label for="url">url</label>                         
+                    </div>
+                </div>
+                <div class="row">                           
+                    <div class="input-field col s12">    
+                        <h:inputText value="#{siteVendasBean.siteVendas.telefone}" id="telefone" >
+                        </h:inputText>
+                        <label for="telefone">telefone</label>                           
+                    </div>
+                </div>
+  
+      
+                <div class="row center-align">                                               
+                    <h:commandButton class="btn center-align waves-effect waves-light red lighten-1 center-align" action="#{siteVendasBean.salva()}" value="Cadastrar"></h:commandButton>                      
+                </div>
+            </h:form></ui:define>
+    </ui:composition>
 </html>

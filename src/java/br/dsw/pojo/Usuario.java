@@ -13,7 +13,7 @@ import javax.persistence.NamedQuery;
 public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private long id;
+    private long id = -1;
     @Column(unique=true)
     private String email;
     private String senha;
@@ -34,4 +34,10 @@ public class Usuario implements Serializable {
     public boolean getAdmin() { return this.isAdmin; }
     
     public void setAdmin(boolean admin) { this.isAdmin = admin; }
+
+    @Override
+    public String toString() {
+        return  String.valueOf(id);
+    }
+    
 }

@@ -17,7 +17,7 @@ public class PromocaoDAO extends GenericDAO<Promocao> {
      @Override
      public List<Promocao> getAll() {
         EntityManager em = this.getEntityManager();
-        List<Promocao> promocoes = em.createQuery("SELECT * FROM Promocao", Promocao.class).getResultList();
+        List<Promocao> promocoes = em.createNamedQuery("Promocao.findAll", Promocao.class).getResultList();
         em.close();
       
         return promocoes;

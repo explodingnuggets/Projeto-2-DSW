@@ -1,7 +1,12 @@
 package br.dsw.pojo;
 
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
 
+@NamedQuery(
+        name="SiteVendas.findAll",
+        query="SELECT s FROM SiteVendas s"
+)
 @Entity
 public class SiteVendas extends Usuario {
     private String url;

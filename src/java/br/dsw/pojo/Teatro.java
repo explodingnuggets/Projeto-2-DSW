@@ -6,20 +6,27 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
+@NamedQuery(
+        name="Teatro.findAll",
+        query="SELECT t FROM Teatro t"
+)
 @Entity
 public class Teatro extends Usuario{
     @Column(unique=true)
-    private String cpnj;
+    private String cnpj;
     private String nome;
     private String cidade;
 
-    public String getCpnj() {
-        return cpnj;
+ 
+    
+    public String getCnpj() {
+        return cnpj;
     }
 
-    public void setCpnj(String cpnj) {
-        this.cpnj = cpnj;
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     public String getNome() {
@@ -37,4 +44,10 @@ public class Teatro extends Usuario{
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
+
+    @Override
+    public String toString() {
+        return "Teatro{" + "nome=" + nome + '}';
+    }
+    
 }

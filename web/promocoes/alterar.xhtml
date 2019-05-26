@@ -2,9 +2,51 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
->
-  <ui:composition template="/WEB-INF/templates/default.xhtml">
+          
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/WEB-INF/templates/default.xhtml">
 
-      <ui:define name="content">alterar promocao</ui:define>
-  </ui:composition>
+        <ui:define name="content">  
+            <h:form>                 
+                <h:inputHidden  value="#{promocaoBean.promocao.id}" id="id"/>
+
+                <div class="row">
+                    <div class="input-field col s6">                            
+                        <h:inputText value="#{promocaoBean.promocao.nome}" id="first_name"/>
+                        <label for="first_name">Nome</label>                         
+                    </div>
+                    <div class="input-field col s6">                          
+                        <h:inputText value="#{promocaoBean.promocao.preco}"  id="preco"  />
+                        <label for="preco">Preco</label>                         
+                    </div>
+                </div>
+                <div class="row">                           
+                    <div class="input-field col s12">    
+                        <h:inputText value="#{promocaoBean.promocao.diaHorario}" id="diaHorario" >
+                            <f:convertDateTime pattern="d/M/yyyy"></f:convertDateTime>
+                        </h:inputText>
+                        <label for="diaHorario">diaHorario</label>                           
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">                                          
+                        <h:inputText value="#{promocaoBean.promocao.site}" id="site">
+                            <f:converter converterId="SiteConverter"/>
+                        </h:inputText>
+                        <label for="site">Site</label>                           
+                    </div>
+                    <div class="input-field col s6">                                                       
+                        <h:inputText value="#{promocaoBean.promocao.teatro}" id="teatro">
+                                                    <f:converter converterId="TeatroConverter"/>
+
+                        </h:inputText>
+                        <label for="teatro">Teatro</label>                                                      
+                    </div>
+                </div>
+      
+                <div class="row center-align">                                               
+                    <h:commandButton class="btn center-align waves-effect waves-light red lighten-1 center-align" action="#{promocaoBean.salva()}" value="Cadastrar"></h:commandButton>                      
+                </div>
+            </h:form></ui:define>
+    </ui:composition>
 </html>
