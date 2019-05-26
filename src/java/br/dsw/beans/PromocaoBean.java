@@ -30,13 +30,13 @@ public class PromocaoBean implements Serializable {
 
     public String cadastra() {
         promocao = new Promocao();
-        return "/promocoes/alterar.xhtml?faces-redirect=true";
+        return "/promocoes/alterar.xhtml";
     }
 
     public String edita(Long id) {
         PromocaoDAO dao = new PromocaoDAO();
         promocao = dao.get(id);
-        return lista();
+        return "/promocoes/alterar.xhtml";
     }
 
     public String salva() {

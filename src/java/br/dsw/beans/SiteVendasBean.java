@@ -28,13 +28,13 @@ public class SiteVendasBean {
 
     public String cadastra() {
         siteVendas = new SiteVendas();
-        return "/sites/alterar.xhtml?faces-redirect=true";
+        return "/sites/alterar.xhtml";
     }
 
     public String edita(Long id) {
         SiteVendasDAO dao = new SiteVendasDAO();
         siteVendas = dao.get(id);
-        return "/sites/alterar.xhtml?faces-redirect=true";
+        return "/sites/alterar.xhtml";
     }
 
     public String salva() {
