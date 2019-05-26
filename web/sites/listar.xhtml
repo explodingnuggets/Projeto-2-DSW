@@ -10,17 +10,17 @@
             <h:form>
                 <p:dataTable value="#{siteVendasBean.sitesVendas}" var="site"   
                              class="table table-striped table-hover table-bordered">  
-                    <p:column headerText="URL">  
+                    <p:column headerText="#{msg['sites.listar.url']}">  
                         <h:outputText value="#{site.url}"/>  
                     </p:column>  
-                    <p:column headerText="Nome">  
+                    <p:column headerText="#{msg['sites.listar.nome']}">  
                         <h:outputText value="#{site.nome}"/>  
                     </p:column>  
-                    <p:column headerText="Telefone">  
+                    <p:column headerText="#{msg['sites.listar.telefone']}">  
                         <h:outputText value="#{site.telefone}"/>  
                     </p:column>
 
-                    <p:column headerText="Acoes">  
+                    <p:column headerText="#{msg['sites.listar.acoes']}">  
                         <h:commandButton action = "#{siteVendasBean.delete(site)}" value="deletar" 
                                          onclick="return confirm('confirmar');"
                                          class="btn btn-danger">  
@@ -30,7 +30,7 @@
                         </h:commandButton>  
                     </p:column>
                 </p:dataTable>  
-                <p:commandButton value="Cadastrar" action = "#{siteVendasBean.cadastra}" ajax="false"/>
+                <p:commandButton value="#{msg['sites.listar.cadastrar']}" action = "#{siteVendasBean.cadastra}" ajax="false"/>
             </h:form>
         </ui:define>
     </ui:composition>
