@@ -9,6 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
+@NamedQuery(
+        name="Usuario.findByEmailAndPassword",
+        query="SELECT u FROM Usuario u WHERE u.senha = :senha AND u.email = :email "
+)
 @Entity
 public class Usuario implements Serializable {
     @Id
@@ -39,5 +43,26 @@ public class Usuario implements Serializable {
     public String toString() {
         return  String.valueOf(id);
     }
+    @Override
+public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + (int) (id ^ (id >>> 32));
+    return result;
+}
+
+@Override
+public boolean equals(Object obj) {
+    if (this == obj)
+        return true;
+    if (obj == null)
+        return false;
+    if (getClass() != obj.getClass())
+        return false;
+    Usuario other = (Usuario) obj;
+    if (id != other.id)
+        return false;
+    return true;
+}
     
 }

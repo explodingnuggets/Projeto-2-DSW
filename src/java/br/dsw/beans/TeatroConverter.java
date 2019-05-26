@@ -16,7 +16,7 @@ import javax.faces.convert.FacesConverter;
  *
  * @author pedro
  */
-@FacesConverter(value = "TeatroConverter")
+@FacesConverter(forClass=Teatro.class, value = "TeatroConverter")
 public class TeatroConverter implements Converter {
 
     private TeatroDAO teatroDao;
@@ -29,7 +29,7 @@ public class TeatroConverter implements Converter {
     public Object getAsObject(FacesContext fc, UIComponent uic, String string) {
         long id = 0;
         try {
-            String[] splitName = string.split("@ ", 2);
+            String[] splitName = string.split("@", 2);
             id = Long.parseLong(splitName[0]);
         } catch (Exception e) {
         }

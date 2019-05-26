@@ -18,6 +18,10 @@ public class PromocaoDAO extends GenericDAO<Promocao> {
      public List<Promocao> getAll() {
         EntityManager em = this.getEntityManager();
         List<Promocao> promocoes = em.createNamedQuery("Promocao.findAll", Promocao.class).getResultList();
+        for(Promocao promocao:promocoes) {
+            promocao.getTeatro();
+            promocao.getSiteVendas();
+     }
         em.close();
       
         return promocoes;

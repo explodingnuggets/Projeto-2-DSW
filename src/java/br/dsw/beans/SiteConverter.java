@@ -16,7 +16,7 @@ import javax.faces.convert.FacesConverter;
  *
  * @author pedro
  */
-@FacesConverter(value = "SiteConverter")
+@FacesConverter(forClass=SiteVendas.class, value = "SiteConverter")
 public class SiteConverter implements Converter {
 
     private SiteVendasDAO siteDAO;
@@ -26,10 +26,12 @@ public class SiteConverter implements Converter {
     
     @Override
     public Object getAsObject(FacesContext fc, UIComponent uic, String string) {
-        long id = 0;
+        long id = -0;
         try {
-            String[] splitName = string.split("@ ", 2);
+            String[] splitName = string.split("@",2);
+            String id_string = splitName[0];
             id = Long.parseLong(splitName[0]);
+            System.out.println(id);
         } catch (Exception e) {
 
         }

@@ -39,6 +39,7 @@ public class SiteVendasDAO extends GenericDAO<SiteVendas> {
      public List<SiteVendas> getAll() {
         EntityManager em = this.getEntityManager();
         List<SiteVendas> siteVendas = em.createNamedQuery("SiteVendas.findAll", SiteVendas.class).getResultList();
+        
         em.close();
       
         return siteVendas;
