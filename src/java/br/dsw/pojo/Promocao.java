@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,6 +24,10 @@ import javax.persistence.UniqueConstraint;
         @UniqueConstraint(columnNames={"site", "diaHorario"}),
         @UniqueConstraint(columnNames={"teatro", "diaHorario"})
     }
+)
+@NamedQuery(
+        name="Promocao.findAll",
+        query="SELECT p FROM Promocao p"
 )
 public class Promocao implements Serializable {
 
