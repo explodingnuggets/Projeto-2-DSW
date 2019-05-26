@@ -28,13 +28,13 @@ public class SiteVendasBean {
 
     public String cadastra() {
         siteVendas = new SiteVendas();
-        return "/sites/alterar.xhtml";
+        return "/sites/alterar.xhtml?faces-redirect=true";
     }
 
     public String edita(Long id) {
         SiteVendasDAO dao = new SiteVendasDAO();
         siteVendas = dao.get(id);
-        return "/sites/alterar.xhtml";
+        return "/sites/alterar.xhtml?faces-redirect=true";
     }
 
     public String salva() {
@@ -50,7 +50,7 @@ public class SiteVendasBean {
     public String delete(SiteVendas siteVendas) {
         SiteVendasDAO dao = new SiteVendasDAO();
         dao.delete(siteVendas);
-        return "/index.xhtml";
+        return lista();
     }
 
     public String volta() {

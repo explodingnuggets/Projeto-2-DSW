@@ -10,16 +10,16 @@ import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
-@FacesValidator("TelefoneValidator")
-public class TelefoneValidator implements Validator{
+@FacesValidator("CNPJValidator")
+public class CNPJValidator implements Validator{
 
-	private static final String TELEFONE_PATTERN = "^(?:(?:\\+|00)?(55)\\s?)?(?:\\(?([1-9][0-9])\\)?\\s?)?(?:((?:9\\d|[2-9])\\d{3})\\-?(\\d{4}))$";
+	private static final String CNPJ_PATTERN = "[0-9]{2}\\.?[0-9]{3}\\.?[0-9]{3}\\/?[0-9]{4}\\-?[0-9]{2}";
 
 	private Pattern pattern;
 	private Matcher matcher;
 	
-	public TelefoneValidator(){
-		  pattern = Pattern.compile(TELEFONE_PATTERN);
+	public CNPJValidator(){
+		  pattern = Pattern.compile(CNPJ_PATTERN);
 	}
 	
 	@Override
@@ -30,7 +30,7 @@ public class TelefoneValidator implements Validator{
 		if(!matcher.matches()){
 			
 			FacesMessage msg = 
-				new FacesMessage("Digite um telefone valido nos seguintes formatos: (##)####-####, ####-####, (##)#####-####");
+				new FacesMessage("CNPJ em formato invalido");
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			throw new ValidatorException(msg);
 

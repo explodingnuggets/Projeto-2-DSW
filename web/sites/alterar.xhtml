@@ -8,19 +8,19 @@
         <ui:param name="titulo" value="Alterar/cadastrar site" />
 
         <ui:define name="form_content">                
-            <h:inputHidden  value="#{siteVendasBean.siteVendas.id}" id="id"/>
 
             <p:outputLabel for="nome" value="Nome do site" />
-            <p:inputText value="#{siteVendasBean.siteVendas.nome}" id="nome"/>
+            <p:inputText value="#{siteVendasBean.siteVendas.nome}" id="nome" required="true" />
             <p:message for="nome" display="icon" /> 
 
             <p:outputLabel for="url" value="Url do site" />
-            <p:inputText value="#{siteVendasBean.siteVendas.url}"  id="url" validator="URLValidator"  />
+            <p:inputText value="#{siteVendasBean.siteVendas.url}"  id="url" validator="URLValidator" required="true"  />
             <p:message for="url" display="icon" />
             
             <p:outputLabel for="telefone" value="Telefone do site" />
-            <p:inputText value="#{siteVendasBean.siteVendas.telefone}" id="telefone" validator="TelefoneValidator" />
+            <p:inputText value="#{siteVendasBean.siteVendas.telefone}" id="telefone" validator="TelefoneValidator" required="true"/>
             <p:message for="telefone" display="icon" /> 
+            <h:inputHidden  value="#{siteVendasBean.siteVendas.id}" id="id"/>
 
 
             <p:commandButton action="#{siteVendasBean.salva()}" ajax="false" value="Cadastrar"></p:commandButton>                      

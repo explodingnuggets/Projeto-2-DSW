@@ -29,13 +29,13 @@ public class TeatroBean {
 
     public String cadastra() {
         teatro = new Teatro();
-        return "/teatros/alterar.xhtml";
+        return "/teatros/alterar.xhtml?faces-redirect=true";
     }
 
     public String edita(Long id) {
         TeatroDAO dao = new TeatroDAO();
         teatro = dao.get(id);
-        return "/teatros/alterar.xhtml";
+        return "/teatros/alterar.xhtml?faces-redirect=true";
     }
 
     public String salva() {

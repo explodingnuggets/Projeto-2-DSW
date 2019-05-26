@@ -30,13 +30,13 @@ public class PromocaoBean implements Serializable {
 
     public String cadastra() {
         promocao = new Promocao();
-        return "/promocoes/alterar.xhtml";
+        return "/promocoes/alterar.xhtml?faces-redirect=true";
     }
 
     public String edita(Long id) {
         PromocaoDAO dao = new PromocaoDAO();
         promocao = dao.get(id);
-        return "/promocoes/alterar.xhtml";
+        return lista();
     }
 
     public String salva() {
@@ -53,7 +53,7 @@ public class PromocaoBean implements Serializable {
     public String delete(Promocao promocao) {
         PromocaoDAO dao = new PromocaoDAO();
         dao.delete(promocao);
-        return "/index.xhtml";
+        return lista();
     }
 
     public String volta() {
