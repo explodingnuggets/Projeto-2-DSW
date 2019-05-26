@@ -46,6 +46,7 @@ public class PromocaoBean implements Serializable {
         } else {
             dao.update(promocao);
         }
+        System.out.println(promocao.getSiteVendas().getNome());
         return lista();
     }
 

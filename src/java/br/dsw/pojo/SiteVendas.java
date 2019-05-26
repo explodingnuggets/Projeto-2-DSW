@@ -25,8 +25,10 @@ public class SiteVendas extends Usuario {
     
     public void setTelefone(String telefone) { this.telefone = telefone; }
 
-     @Override
+     @Override 
     public String toString() {
         return getId() +"@"+ nome;
     }
+
+
 }

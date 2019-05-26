@@ -49,5 +49,6 @@ public class Teatro extends Usuario{
     public String toString() {
         return getId() +"@"+ nome;
     }
-    
+
+
 }

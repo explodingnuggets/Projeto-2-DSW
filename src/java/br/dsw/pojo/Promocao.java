@@ -8,6 +8,7 @@ package br.dsw.pojo;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,10 +43,10 @@ public class Promocao implements Serializable {
     @Temporal(TemporalType.DATE) 
     private Date diaHorario;
     
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.EAGER)
     private SiteVendas siteVendas;
     
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.EAGER)
     private Teatro teatro;
 
     public long getId() {
@@ -95,4 +96,25 @@ public class Promocao implements Serializable {
     public void setTeatro(Teatro teatro) {
         this.teatro = teatro;
     }
+    @Override
+public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + (int) (id ^ (id >>> 32));
+    return result;
+}
+
+@Override
+public boolean equals(Object obj) {
+    if (this == obj)
+        return true;
+    if (obj == null)
+        return false;
+    if (getClass() != obj.getClass())
+        return false;
+    Promocao other = (Promocao) obj;
+    if (id != other.id)
+        return false;
+    return true;
+}
 }
