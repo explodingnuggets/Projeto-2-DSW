@@ -5,34 +5,34 @@
 
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:composition template="/WEB-INF/templates/form.xhtml">
-        <ui:param name="titulo" value="Alterar/cadastrar promocao   " />
+        <ui:param name="titulo" value="#{msg['promocoes.alterar.titulo']}   " />
 
         <ui:define name="form_content">  
 
                 <h:inputHidden  value="#{promocaoBean.promocao.id}" id="id"/>
                 
-                <p:outputLabel for="nome" value="Nome da promoćao" />
+                <p:outputLabel for="nome" value="#{msg['promocoes.alterar.nome']}" />
                 <p:inputText value="#{promocaoBean.promocao.nome}" id="nome"/>
                 <p:message for="nome" display="icon" />
 
-                <p:outputLabel for="preco" value="Preco" />
+                <p:outputLabel for="preco" value="#{msg['promocoes.alterar.preco']}" />
                 <p:inputText value="#{promocaoBean.promocao.preco}"  id="preco"  />
                 <p:message for="preco" display="icon" />
 
-                <p:outputLabel for="diaHorario" value="Horario do evento" />
+                <p:outputLabel for="diaHorario" value="#{msg['promocoes.alterar.horario']}" />
                 <p:inputText value="#{promocaoBean.promocao.diaHorario}" id="diaHorario" >
                     <f:convertDateTime pattern="d/M/yyyy"></f:convertDateTime>
                 </p:inputText>
                 <p:message for="diaHorario" display="icon" />
 
-                <p:outputLabel for="site" value="Site do evento" />
+                <p:outputLabel for="site" value="#{msg['promocoes.alterar.site']}" />
                 <p:selectOneMenu id="site" value="#{promocaoBean.promocao.siteVendas}" converter="SiteConverter">
                     <f:selectItems value="#{siteVendasBean.sitesVendas}">
                     </f:selectItems>
                 </p:selectOneMenu>
                 <p:message for="site" display="icon" />
 
-                <p:outputLabel for="teatro" value="Teatro do evento" />
+                <p:outputLabel for="teatro" value="#{msg['promocoes.alterar.teatro']}" />
                 <p:selectOneMenu id="teatro" value="#{promocaoBean.promocao.teatro}" converter="TeatroConverter">
                     <f:selectItems value="#{teatroBean.teatros}">
                     </f:selectItems>
@@ -41,7 +41,7 @@
 
 
 
-                <p:commandButton ajax="false" action="#{promocaoBean.salva()}" value="Cadastrar"></p:commandButton>                      
+                <p:commandButton ajax="false" action="#{promocaoBean.salva()}" value="#{msg['promocoes.alterar.cadastrar']}"></p:commandButton>                      
 
             </ui:define>
     </ui:composition>
