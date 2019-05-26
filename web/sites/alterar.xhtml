@@ -5,20 +5,20 @@
 
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:composition template="/WEB-INF/templates/form.xhtml">
-        <ui:param name="titulo" value="Alterar/cadastrar site" />
+        <ui:param name="titulo" value="#{msg['sites.alterar.titulo']}" />
 
         <ui:define name="form_content">                
             <h:inputHidden  value="#{siteVendasBean.siteVendas.id}" id="id"/>
 
-            <p:outputLabel for="nome" value="Nome do site" />
+            <p:outputLabel for="nome" value="#{msg['sites.alterar.nome']}" />
             <p:inputText value="#{siteVendasBean.siteVendas.nome}" id="nome"/>
             <p:message for="nome" display="icon" /> 
 
-            <p:outputLabel for="url" value="Url do site" />
+            <p:outputLabel for="url" value="#{msg['sites.alterar.url']}" />
             <p:inputText value="#{siteVendasBean.siteVendas.url}"  id="url"  />
             <p:message for="url" display="icon" />
             
-            <p:outputLabel for="telefone" value="Telefone do site" />
+            <p:outputLabel for="telefone" value="#{msg['sites.alterar.telefone']}" />
             <p:inputText value="#{siteVendasBean.siteVendas.telefone}" id="telefone" />
             <p:message for="telefone" display="icon" /> 
 
