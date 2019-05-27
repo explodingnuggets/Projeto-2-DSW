@@ -13,28 +13,28 @@
                     <p:column headerText="Id">  
                         <h:outputText value="#{promocao.id}"/>  
                     </p:column>  
-                    <p:column headerText="Nome">  
+                    <p:column headerText="#{msg['promocoes.listar.nome']}">
                         <h:outputText value="#{promocao.nome}"/>  
                     </p:column>  
-                    <p:column headerText="Preco">  
+                    <p:column headerText="#{msg['promocoes.listar.preco']}">  
                         <h:outputText value="#{promocao.preco}"/>  
                     </p:column>
-                    <p:column headerText="Teatro">  
+                    <p:column headerText="#{msg['promocoes.listar.teatro']}">  
                         <h:outputText converter="TeatroConverter" value="#{promocao.teatro}"/>  
                     </p:column>
-                    <p:column headerText="Site">  
+                    <p:column headerText="#{msg['promocoes.listar.site']}">  
                         <h:outputText  converter="SiteConverter" value="#{promocao.siteVendas}"/>  
                     </p:column>
 
-                    <p:column headerText="Acoes">  
-                        <p:commandButton rendered="#{usuarioBean.usuario.admin == true || usuarioBean.usuario.id == promocao.teatro.id}" action = "#{promocaoBean.delete(promocao)}" ajax="false" value="deletar" 
-                                         onclick="return confirm('confirmar');"/> 
-                        <p:commandButton rendered="#{usuarioBean.usuario.admin == true || usuarioBean.usuario.id == promocao.teatro.id}" action = "#{promocaoBean.edita(promocao.id)}" ajax="false" value="editar"/>  
+                    <p:column headerText="#{msg['promocoes.listar.acoes']}">  
+                        <p:commandButton rendered="#{usuarioBean.usuario.admin == true || usuarioBean.usuario.id == promocao.teatro.id}" action = "#{promocaoBean.delete(promocao)}" ajax="false" value="#{msg['promocoes.listar.deletar']}" 
+                                         onclick="return confirm('#{msg['promocoes.listar.confirmar']}');"/> 
+                        <p:commandButton rendered="#{usuarioBean.usuario.admin == true || usuarioBean.usuario.id == promocao.teatro.id}" action = "#{promocaoBean.edita(promocao.id)}" ajax="false" value="#{msg['promocoes.listar.editar']}"/>  
                         <p:commandButton  ajax="false" value="Comprar"/>  
 
                     </p:column>
                 </p:dataTable>  
-                <p:commandButton value="Cadastrar" action = "#{promocaoBean.cadastra}" ajax="false"/>
+                <p:commandButton value="#{msg['promocoes.listar.cadastrar']}" action = "#{promocaoBean.cadastra}" ajax="false"/>
             </h:form>
         </ui:define>
     </ui:composition>
