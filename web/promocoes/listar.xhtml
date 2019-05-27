@@ -30,7 +30,7 @@
                         <p:commandButton rendered="#{usuarioBean.usuario.admin == true || usuarioBean.usuario.id == promocao.teatro.id}" action = "#{promocaoBean.delete(promocao)}" ajax="false" value="#{msg['promocoes.listar.deletar']}" 
                                          onclick="return confirm('#{msg['promocoes.listar.confirmar']}');"/> 
                         <p:commandButton rendered="#{usuarioBean.usuario.admin == true || usuarioBean.usuario.id == promocao.teatro.id}" action = "#{promocaoBean.edita(promocao.id)}" ajax="false" value="#{msg['promocoes.listar.editar']}"/>  
-                        <p:commandButton  ajax="false" value="Comprar"/>  
+                        <p:commandButton  ajax="false" value="#{msg['promocoes.listar.comprar']}"/>  
 
                     </p:column>
                 </p:dataTable>  
