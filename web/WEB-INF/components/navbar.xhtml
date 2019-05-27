@@ -34,13 +34,13 @@
                 <h:outputLabel for="password" value="Password:" />
                 <p:password id="password" value="#{usuarioBean.usuario.senha}" required="true" label="Senha" validator="PasswordValidator" />
 
-                <h:outputLabel for="admin" value="Como admin?" />
+                <h:outputLabel for="admin" value="#{msg['navbar.admin']}" />
                 <p:selectBooleanCheckbox id="admin" value="#{usuarioBean.usuario.admin}" required="true" label="Admin" />
 
                 <f:facet name="footer">
-                    <p:commandButton value="Login" ajax="false"  action="#{usuarioBean.login}"
+                    <p:commandButton value="#{msg['navbar.login']}" ajax="false"  action="#{usuarioBean.login}"
                                      />
-                    <p:commandButton value="Create" ajax="false"  action="#{usuarioBean.create}"
+                    <p:commandButton value="#{msg['navbar.criar']}" ajax="false"  action="#{usuarioBean.create}"
                                      />
                 </f:facet>  
             </h:panelGrid>
