@@ -18,30 +18,25 @@ public class UsuarioDAO extends GenericDAO<Usuario> {
         return usuario;
     }
 
-    public Usuario get(String email) throws NoResultException {
-        Usuario usuario = new Usuario();
-        usuario.setId(-1);
+    public Usuario get(String email) {
+        Usuario usuario;
         EntityManager em = this.getEntityManager();
         try {
             usuario = em.createNamedQuery("Usuario.findByEmail", Usuario.class).setParameter("email", email).getSingleResult();
         } catch (NoResultException e) {
-            throw e;
+            return null;
         }
+        
         return usuario;
-
     }
 
     @Override
-    public void save(Usuario usuario) throws EntityExistsException {
+    public void save(Usuario usuario){
         EntityManager em = this.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        try{
         em.persist(usuario);
         tx.commit();
-        } catch(EntityExistsException e){
-           throw e; 
-        }
         em.close();
     }
 

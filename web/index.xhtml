@@ -22,7 +22,7 @@
                                     #{msg['index.teatros']}
                                 </a>
                             </div>
-                            <ui:fragment rendered="#{usuarioBean.usuario.isAdmin}">
+                            <ui:fragment rendered="#{usuarioBean.isAdmin()}">
                                 <div class="column has-text-centered">
                                     <i class="fas fa-8x fa-globe"></i>
                                     <a href="/sites/list.xhtml" class="button is-large is-fullwidth">

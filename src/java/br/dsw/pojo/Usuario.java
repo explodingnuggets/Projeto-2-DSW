@@ -29,6 +29,14 @@ public class Usuario implements Serializable {
     private String senha;
     private boolean isAdmin = false;
     
+    public Usuario() {}
+    
+    public Usuario(String email, String senha, boolean isAdmin) {
+        this.email = email;
+        this.senha = senha;
+        this.isAdmin = isAdmin;
+    }
+    
     public long getId() { return this.id; }
     
     public void setId(long id) { this.id = id; }

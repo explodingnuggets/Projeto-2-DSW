@@ -8,27 +8,27 @@
     <ui:composition template="/faces/templates/default.xhtml">
         <ui:define name="content">
             <section class="hero is-primary">
-                <div class="hero-body">
-                    <h1 class="title">
-                        #{msg['login.fazer_login']}
-                    </h1>
+                <div class=" hero-body">
+                    <div class="container has-text-centered">
+                        <h1 class="title">
+                            #{msg['cadastro.fazer_cadastro']}
+                        </h1>
+                    </div>
                 </div>
             </section>
             
             <ui:fragment rendered="#{usuarioBean.erro}">
-                <com:error message="#{msg['login.erro']}"></com:error>
+                <com:error message="#{msg['cadastro.erro']}"></com:error>
             </ui:fragment>
             
             <section class="section">
                 <div class="container">
-                    <div class="columns is-centered is-vcentered">
+                    <div class="columns  is-centered is-vcentered">
                         <div class="column is-narrow">
                             <h:form>
                                 <div class="field is-horizontal">
                                     <div class="field-label is-normal">
-                                        <label class="label">
-                                            #{msg['login.usuario']}
-                                        </label>
+                                        <label class="label">#{msg['cadastro.usuario']}</label>
                                     </div>
                                     <div class="field-body">
                                         <div class="field">
@@ -40,16 +40,14 @@
                                 </div>
                                 <div class="field is-horizontal has-addons">
                                     <div class="field-label is-normal">
-                                        <label class="label">
-                                            #{msg['login.senha']}
-                                        </label>
+                                        <label class="label">#{msg['cadastro.senha']}</label>
                                     </div>
                                     <div class="field-body">
                                         <p class="control is-expanded">
                                             <h:inputSecret class="input" value="#{usuarioBean.senha}" />
                                         </p>
                                         <div class="control">
-                                            <h:commandLink class="button is-success" action="#{usuarioBean.login}">
+                                            <h:commandLink class="button is-success" action="#{usuarioBean.create}">
                                                 <i class="fas fa-arrow-right"></i>
                                             </h:commandLink>
                                         </div>
@@ -58,11 +56,6 @@
                             </h:form>
                         </div>
                     </div>
-                </div>
-                <div style="text-align: center">
-                    <a href="/usuario/create.xhtml">
-                        #{msg['login.cadastrar']}
-                    </a>
                 </div>
             </section>
         </ui:define>
