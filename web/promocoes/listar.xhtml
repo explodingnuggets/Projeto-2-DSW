@@ -16,7 +16,7 @@
                     <p:column headerText="#{msg['promocoes.listar.nome']}">
                         <h:outputText value="#{promocao.nome}"/>  
                     </p:column>  
-                    <p:column headerText="#{msg['promocoes.listar.price']}">  
+                    <p:column headerText="#{msg['promocoes.listar.preco']}">  
                         <h:outputText value="#{promocao.preco}"/>  
                     </p:column>
                     <p:column headerText="#{msg['promocoes.listar.teatro']}">  
@@ -26,7 +26,7 @@
                         <h:outputText  converter="SiteConverter" value="#{promocao.siteVendas}"/>  
                     </p:column>
 
-                    <p:column headerText="#{msg['promocoes.listar.actions']}">  
+                    <p:column headerText="#{msg['promocoes.listar.acoes']}">  
                         <h:commandButton action = "#{promocaoBean.delete(promocao)}" value="deletar" 
                                          onclick="return confirm('confirmar');"
                                          class="btn btn-danger">  
