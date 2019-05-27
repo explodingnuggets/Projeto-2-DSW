@@ -21,11 +21,11 @@
                     </p:column>
 
                     <p:column headerText="#{msg['teatros.listar.acoes']}">  
-                        <h:commandButton action = "#{teatroBean.delete(teatro)}" value="deletar" 
-                                         onclick="return confirm('confirmar');"
+                        <h:commandButton action = "#{teatroBean.delete(teatro)}" value="#{msg['teatros.listar.deletar']}" 
+                                         onclick="return confirm('#{msg['teatros.listar.confirmar']}');"
                                          class="btn btn-danger">  
                         </h:commandButton>  
-                        <h:commandButton action = "#{teatroBean.edita(teatro.id)}" value="editar"
+                        <h:commandButton action = "#{teatroBean.edita(teatro.id)}" value="#{msg['teatros.listar.editar']}"
                                          class="btn btn-danger">  
                         </h:commandButton>  
                     </p:column>

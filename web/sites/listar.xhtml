@@ -21,11 +21,11 @@
                     </p:column>
 
                     <p:column headerText="#{msg['sites.listar.acoes']}">  
-                        <h:commandButton action = "#{siteVendasBean.delete(site)}" value="deletar" 
-                                         onclick="return confirm('confirmar');"
+                        <h:commandButton action = "#{siteVendasBean.delete(site)}" value="#{msg['sites.listar.deletar']}" 
+                                         onclick="return confirm('#{msg['sites.listar.confirmar']}');"
                                          class="btn btn-danger">  
                         </h:commandButton>  
-                        <h:commandButton action = "#{siteVendasBean.edita(site.id)}" value="editar"
+                        <h:commandButton action = "#{siteVendasBean.edita(site.id)}" value="#{msg['sites.listar.editar']}"
                                          class="btn btn-danger">  
                         </h:commandButton>  
                     </p:column>
