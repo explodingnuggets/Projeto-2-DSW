@@ -18,7 +18,7 @@
                 <p:inputText value="#{promocaoBean.promocao.preco}"  id="preco" type="number" required="true" />
                 <p:message for="preco" display="icon" />
 
-                <p:outputLabel for="diaHorario" value="#{msg['promocoes.alterar.horario']}" />
+                <p:outputLabel for="diaHorario" value="#{msg['promocoes.alterar.dia']}" />
                 <p:inputText value="#{promocaoBean.promocao.diaHorario}" id="diaHorario" required="true" >
                     <f:convertDateTime pattern="d/M/yyyy"></f:convertDateTime>
                 </p:inputText>

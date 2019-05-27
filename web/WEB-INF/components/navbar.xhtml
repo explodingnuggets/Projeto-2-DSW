@@ -28,10 +28,10 @@
 
         <p:dialog rendered="#{usuarioBean.usuario.id == -1}" header="Login" widgetVar="login" resizable="false">
             <h:panelGrid columns="2" cellpadding="5">
-                <h:outputLabel for="username" value="Username:" />
+                <h:outputLabel for="username" value="#{msg['login.usuario']}:" />
                 <p:inputText id="username" value="#{usuarioBean.usuario.email}" required="true" label="Email"  validator="EmailValidator" />
 
-                <h:outputLabel for="password" value="Password:" />
+                <h:outputLabel for="password" value="#{msg['login.senha']}:" />
                 <p:password id="password" value="#{usuarioBean.usuario.senha}" required="true" label="Senha" validator="PasswordValidator" />
 
                 <h:outputLabel for="admin" value="#{msg['navbar.admin']}" />
