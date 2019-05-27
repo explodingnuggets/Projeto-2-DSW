@@ -20,7 +20,7 @@
                
                 <h:outputText value="#{usuarioBean.usuario.email}"/>
 
-                <p:commandButton rendered="#{usuarioBean.usuario.id != -1}" value="Sair" ajax="false" action="#{usuarioBean.logout()}">
+                <p:commandButton rendered="#{usuarioBean.usuario.id != -1}" value="#{msg['navbar.sair']}" ajax="false" action="#{usuarioBean.logout()}">
                 </p:commandButton>       
             </f:facet>
         </p:menubar>
