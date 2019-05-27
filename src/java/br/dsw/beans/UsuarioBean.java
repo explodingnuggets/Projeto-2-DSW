@@ -51,7 +51,7 @@ public class UsuarioBean implements Serializable {
 
         
  
-       return "/index.xhtml";
+       return "/index.xhtml?faces-redirect=true";
     }
 
     public String logout() {

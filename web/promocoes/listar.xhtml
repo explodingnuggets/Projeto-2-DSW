@@ -8,21 +8,25 @@
 
         <ui:define name="content">
             <h:form>
-                <p:dataTable value="#{promocaoBean.promocoes}" var="promocao"   
+                <p:dataTable value="#{promocaoBean.promocoes}" var="promocao" style="text-align:center;"   
                              class="table table-striped table-hover table-bordered">  
-                    <p:column headerText="Id">  
+
+                    <p:column headerText="Id" style="text-align:center;"  >  
                         <h:outputText value="#{promocao.id}"/>  
                     </p:column>  
-                    <p:column headerText="#{msg['promocoes.listar.nome']}">
+                    <p:column headerText="#{msg['promocoes.listar.nome']}" style="text-align:center;"  >
                         <h:outputText value="#{promocao.nome}"/>  
                     </p:column>  
-                    <p:column headerText="#{msg['promocoes.listar.preco']}">  
+                    <p:column headerText="#{msg['promocoes.listar.preco']}" style="text-align:center;"  >  
                         <h:outputText value="#{promocao.preco}"/>  
                     </p:column>
-                    <p:column headerText="#{msg['promocoes.listar.teatro']}">  
+                    <p:column filterBy="#{promocao.teatro.cidade}" headerText="#{msg['teatros.listar.cidade']}" filterMatchMode="contains" style="text-align:center;"  >
+                        <h:outputText value="#{promocao.teatro.cidade}" />
+                    </p:column>
+                    <p:column headerText="#{msg['promocoes.listar.teatro']}" style="text-align:center;"  >  
                         <h:outputText converter="TeatroConverter" value="#{promocao.teatro}"/>  
                     </p:column>
-                    <p:column headerText="#{msg['promocoes.listar.site']}">  
+                    <p:column headerText="#{msg['promocoes.listar.site']}" style="text-align:center;"  >  
                         <h:outputText  converter="SiteConverter" value="#{promocao.siteVendas}"/>  
                     </p:column>
 
@@ -34,7 +38,7 @@
 
                     </p:column>
                 </p:dataTable>  
-                <p:commandButton value="#{msg['promocoes.listar.cadastrar']}" action = "#{promocaoBean.cadastra}" ajax="false"/>
+                <p:commandButton rendered="#{usuarioBean.usuario.id!=-1}" value="#{msg['promocoes.listar.cadastrar']}" action = "#{promocaoBean.cadastra}" ajax="false"/>
             </h:form>
         </ui:define>
     </ui:composition>

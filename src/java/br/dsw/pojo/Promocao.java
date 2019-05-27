@@ -44,10 +44,10 @@ public class Promocao implements Serializable {
     @Temporal(TemporalType.DATE) 
     private Date diaHorario;
     
-    @ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch=FetchType.EAGER)
     private SiteVendas siteVendas;
     
-    @ManyToOne(fetch=FetchType.EAGER,  cascade = CascadeType.ALL)
+    @ManyToOne(fetch=FetchType.EAGER)
     private Teatro teatro;
 
     public long getId() {
