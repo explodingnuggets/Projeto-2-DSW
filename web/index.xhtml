@@ -5,7 +5,36 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     
     <ui:composition template="/faces/templates/default.xhtml">
-        
+        <ui:define name="content">
+            <h1 class="align-center" style="font-size:32px; padding-top: 20px">
+                <section class="section">
+                    <div class="container">
+                        <div class="columns">
+                            <div class="column has-text-centered">
+                                <i class="fas fa-8x fa-ticket-alt"></i>
+                                <a href="/ingresso/list.xhtml" class="button is-large is-fullwidth">
+                                    #{msg['index.ingressos']}
+                                </a>
+                            </div>
+                            <div class="column has-text-centered">
+                                <i class="fas fa-8x fa-theater-masks"></i>
+                                <a href="/teatro/list.xhtml" class="button is-large is-fullwidth">
+                                    #{msg['index.teatros']}
+                                </a>
+                            </div>
+                            <ui:fragment rendered="#{usuarioBean.usuario.isAdmin}">
+                                <div class="column has-text-centered">
+                                    <i class="fas fa-8x fa-globe"></i>
+                                    <a href="/sites/list.xhtml" class="button is-large is-fullwidth">
+                                        #{msg['index.sites']}
+                                    </a>
+                                </div>
+                            </ui:fragment>
+                        </div>                        
+                    </div>
+                </section>
+            </h1>
+        </ui:define>
     </ui:composition>
 </html>
 

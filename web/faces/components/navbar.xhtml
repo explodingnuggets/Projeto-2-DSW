@@ -45,7 +45,7 @@
                             </span>
                         </a>
                         <ui:fragment rendered="#{usuarioBean.usuario.isAdmin}">
-                            <a class="navbar-item" href="/site/list">
+                            <a class="navbar-item" href="/site/list.xhtml">
                                 <span class="icon">
                                     <i class="fas fa-globe"></i>
                                 </span>
@@ -55,7 +55,7 @@
                             </a>
                         </ui:fragment>
                         <ui:fragment rendered="#{usuarioBean.usuario.userId == null}">
-                            <a class="navbar-item" href="/usuario/login">
+                            <a class="navbar-item" href="/usuario/login.xhtml">
                                 <span class="icon">
                                     <i class="fas fa-sign-in-alt"></i>
                                 </span>
@@ -70,13 +70,13 @@
                                     <span class="tag">
                                         #{usuarioBean.usuario.email}
                                     </span>
-                                    <a href="/teatro/show" class="tag is-info">
+                                    <a href="/teatro/show.xhtml" class="tag is-info">
                                         #{msg['navbar.meu_teatro']}
                                     </a>
                                 </div>
 
                             </span>
-                            <a class="navbar-item" href="/usuario/logout">
+                            <a class="navbar-item" href="#{usuarioBean.logout()}">
                                 <span class="icon">
                                     <i class="fas fa-sign-out-alt"></i>
                                 </span>
