@@ -8,23 +8,6 @@
         <param-name>javax.faces.CONFIG_FILES</param-name>
         <param-value>/WEB-INF/faces-config.xml</param-value>
     </context-param>
-    <filter>
-        <filter-name>AdminFilter</filter-name>
-        <filter-class>br.dsw.control.filters.AdminFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>AdminFilter</filter-name>
-        <url-pattern>/sites/*</url-pattern>
-        <url-pattern>/teatros/alterar.xhtml</url-pattern>
-    </filter-mapping>
-    <filter>
-        <filter-name>LoggedFilter</filter-name>
-        <filter-class>br.dsw.control.filters.LoggedFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>LoggedFilter</filter-name>
-        <url-pattern>/promocoes/alterar.xhtml</url-pattern>
-    </filter-mapping>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -42,20 +25,16 @@
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
-    <context-param>
-        <param-name>primefaces.THEME</param-name>
-        <param-value>admin</param-value>
-    </context-param>
-    <error-page>
-        <error-code>404</error-code>
-        <location>/faces/404.xhtml</location>
-    </error-page>
     <error-page>
         <error-code>401</error-code>
-        <location>/faces/401.xhtml</location>
+        <location>/faces/errors/401.xhtml</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/faces/errors/404.xhtml</location>
     </error-page>
     <error-page>
         <error-code>500</error-code>
-        <location>/faces/500.xhtml</location>
+        <location>/faces/errors/500.xhtml</location>
     </error-page>
 </web-app>

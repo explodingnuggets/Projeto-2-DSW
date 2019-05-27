@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <section>
+        <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+            <div class="container">
+                <div class="navbar-brand">
+                    <span class="navbar-item">
+                        <span class="icon">
+                            <i class="fas fa-2x fa-money-bill-wave"></i>
+                        </span>
+                    </span>
+                    <span class="navbar-burger burger" data-target="navbarMenuHeroC">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </div>
+                <div id="navbarMenuHeroC" class="navbar-menu">
+                    <div class="navbar-end">
+                        <a class="navbar-item" href="/">
+                            <span class="icon">
+                                <i class="fas fa-home"></i>
+                            </span>
+                            <span>
+                                #{msg['navbar.inicio']}
+                            </span>
+                        </a>
+                        <a class="navbar-item" href="/ingresso/list.xhtml">
+                            <span class="icon">
+                                <i class="fas fa-ticket-alt"></i>
+                            </span>
+                            <span>
+                                #{msg['navbar.ingressos']}
+                            </span>
+                        </a>
+                        <a class="navbar-item" href="/teatro/list.xhtml">
+                            <span class="icon">
+                                <i class="fas fa-theater-masks"></i>
+                            </span>
+                            <span>
+                                #{msg['navbar.teatros']}
+                            </span>
+                        </a>
+                        <ui:fragment rendered="#{usuarioBean.usuario.isAdmin}">
+                            <a class="navbar-item" href="/site/list">
+                                <span class="icon">
+                                    <i class="fas fa-globe"></i>
+                                </span>
+                                <span>
+                                    #{msg['navbar.sites']}
+                                </span>
+                            </a>
+                        </ui:fragment>
+                        <ui:fragment rendered="#{usuarioBean.usuario.userId == null}">
+                            <a class="navbar-item" href="/usuario/login">
+                                <span class="icon">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                </span>
+                                <span>
+                                    #{msg['navbar.login']}
+                                </span>
+                            </a>
+                        </ui:fragment>
+                        <ui:fragment rendered="#{usuarioBean.usuario.id != null}">
+                            <span class="navbar-item">
+                                <div class="tags has-addons">
+                                    <span class="tag">
+                                        #{usuarioBean.usuario.email}
+                                    </span>
+                                    <a href="/teatro/show" class="tag is-info">
+                                        #{msg['navbar.meu_teatro']}
+                                    </a>
+                                </div>
+
+                            </span>
+                            <a class="navbar-item" href="/usuario/logout">
+                                <span class="icon">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                </span>
+                                <span>
+                                    #{msg['navbar.logout']}
+                                </span>
+                            </a>
+                        </ui:fragment>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </section>
+</html>

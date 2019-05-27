@@ -2,25 +2,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <h:head>
-        <ui:include src="../WEB-INF/components/head.xhtml" />
-    </h:head>
-    
-    <h:body>
-        <section class="hero is-link is-fullheight">
+      xmlns:ui = "http://java.sun.com/jsf/facelets">
+
+    <head>
+        <ui:include src="/faces/components/head.xhtml"/>
+    </head>
+
+    <section class="hero is-link is-fullheight">
         <div class="hero-body">
             <div class="container has-text-centered">
-               <i class="fas fa-3x fa-key"></i>
+               <i class="fas fa-3x fa-bomb"></i>
                 <p class="title">
-                    401
+                    404
                 </p>
                 <div class="tag">
-                    <h:outputText value ="#{msg['401.message']}" />
+                    <h:outputText value ="#{msg['404.message']}" />
                 </div>
             </div>
         </div>
     </section>
-    </h:body>
 </html>
-
