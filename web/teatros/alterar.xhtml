@@ -22,7 +22,7 @@
             <p:message for="cidade" display="icon" /> 
             <h:inputHidden  value="#{teatroBean.teatro.id}" id="id"/>
 
-            <p:commandButton ajax="false" action="#{teatroBean.salva}" value="Cadastrar"/>                   
+            <p:commandButton ajax="false" action="#{teatroBean.salva}" value="#{msg['teatros.alterar.cadastrar']}"/>                   
         </ui:define>
     </ui:composition>
 </html>
