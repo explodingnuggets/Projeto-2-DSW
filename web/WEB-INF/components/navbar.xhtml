@@ -18,7 +18,7 @@
             <f:facet name="options">
                 <p:button rendered="#{usuarioBean.usuario.id == -1}"  href="javascript:void(0)" onclick="PF('login').show();" value="#{msg['navbar.login']}" title="login"/>
                
-                <h:outputText value="#{usuarioBean.usuario.email}"/>
+                <h:outputText rendered="#{usuarioBean.usuario.id == -1}" value="#{usuarioBean.usuario.email}"/>
 
                 <p:commandButton rendered="#{usuarioBean.usuario.id != -1}" value="#{msg['navbar.sair']}" ajax="false" action="#{usuarioBean.logout()}">
                 </p:commandButton>       
@@ -44,7 +44,11 @@
                                      />
                 </f:facet>  
             </h:panelGrid>
-        </p:dialog>  
+        </p:dialog>
+
+        <p:dialog header="Failed Login" widgetVar="dlg1" minHeight="40" rendered="#{usuarioBean.failedLogin}">
+            <h:outputText value="Wrong username or password" />
+        </p:dialog>
  
     </h:form>
 </ui:component>

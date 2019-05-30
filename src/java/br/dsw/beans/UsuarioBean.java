@@ -18,8 +18,14 @@ public class UsuarioBean implements Serializable {
 
     private Usuario usuario;
 
+    private Boolean failedLogin = false;
+
     public UsuarioBean() {
         usuario = new Usuario();
+    }
+
+    public Boolean getFailedLogin() {
+        return failedLogin;
     }
 
     public Usuario getUsuario() {
@@ -44,12 +50,16 @@ public class UsuarioBean implements Serializable {
     public String login() {
         UsuarioDAO dao = new UsuarioDAO();
        
+        try {
             usuario = dao.get(usuario.getEmail(), usuario.getSenha());
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user_email", usuario.getEmail());
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user_id", usuario.getId());
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("is_admin", usuario.getAdmin());
-
-        
+        } catch(Exception e){
+            usuario.setId(-1);
+            usuario.setAdmin(false);
+            failedLogin = true;
+        }
  
        return "/index.xhtml";
     }
