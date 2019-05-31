@@ -73,7 +73,7 @@ public class UsuarioBean implements Serializable {
     public String visualizar() {
         UsuarioDAO udau = new UsuarioDAO();
         usuario = udau.getByEmail(usuario.getEmail());
-        return "/usuario/visualizar.xhtml";
+        return "/usuario/visualizar.xhtml?faces-redirect=true";
     }
 
     public String logout() {
@@ -81,7 +81,7 @@ public class UsuarioBean implements Serializable {
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("user_email");
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("user_id");
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("is_admin");
-        return "/index.xhtml";
+        return "/index.xhtml?faces-redirect=true";
 
     }
 
