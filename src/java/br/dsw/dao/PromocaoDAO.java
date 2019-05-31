@@ -2,12 +2,13 @@ package br.dsw.dao;
 
 import br.dsw.pojo.Promocao;
 import java.util.List;
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-public class PromocaoDAO extends GenericDAO<Promocao> {
+public class PromocaoDAO extends GenericDAO<Promocao,Long> {
     @Override
-    public Promocao get(long id) {
+    public Promocao get(Long id) {
         EntityManager em = this.getEntityManager();
         Promocao promocao = em.getReference(Promocao.class, id);
         em.close();
@@ -28,11 +29,13 @@ public class PromocaoDAO extends GenericDAO<Promocao> {
     }
     
     @Override
-    public void save(Promocao promocao) {
+    public void save(Promocao promocao) throws EntityExistsException {
         EntityManager em = this.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
+     
         em.persist(promocao);
+      
         tx.commit();
         em.close();
     }
@@ -43,6 +46,7 @@ public class PromocaoDAO extends GenericDAO<Promocao> {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         em.merge(promocao);
+
         tx.commit();
         em.close();
     }

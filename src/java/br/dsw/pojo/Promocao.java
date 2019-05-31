@@ -24,8 +24,8 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(
     uniqueConstraints={
-        @UniqueConstraint(columnNames={"SITEVENDAS_ID", "diaHorario"}),
-        @UniqueConstraint(columnNames={"TEATRO_ID", "diaHorario"})
+        @UniqueConstraint(columnNames={"siteVendas_nome", "diaHorario"}),
+        @UniqueConstraint(columnNames={"teatro_nome", "diaHorario"})
     }
 )
 @NamedQuery(
@@ -41,13 +41,13 @@ public class Promocao implements Serializable {
     private long id;
     private String nome;
     private double preco;
-    @Temporal(TemporalType.DATE) 
+    @Temporal(TemporalType.TIMESTAMP) 
     private Date diaHorario;
     
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private SiteVendas siteVendas;
     
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Teatro teatro;
 
     public long getId() {

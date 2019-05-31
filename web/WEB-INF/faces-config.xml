@@ -15,4 +15,8 @@
           <var>msg</var>
        </resource-bundle>
     </application>
+    
+    <factory>
+        <exception-handler-factory>br.dsw.exception.T2ExceptionHandlerFactory</exception-handler-factory>
+    </factory>
 </faces-config>

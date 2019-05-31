@@ -7,12 +7,14 @@ package br.dsw.beans;
 
 import br.dsw.dao.PromocaoDAO;
 import br.dsw.pojo.Promocao;
+import br.dsw.pojo.Teatro;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.persistence.EntityExistsException;
 
 /**
  *
@@ -33,20 +35,29 @@ public class PromocaoBean implements Serializable {
         return "/promocoes/alterar.xhtml";
     }
 
+    public String cadastraDoTeatro(Teatro t) {
+        promocao = new Promocao();
+        promocao.setTeatro(t);
+        return "/promocoes/alterar.xhtml";
+    }
+
     public String edita(Long id) {
         PromocaoDAO dao = new PromocaoDAO();
         promocao = dao.get(id);
         return "/promocoes/alterar.xhtml";
     }
 
-    public String salva() {
+    public String salva() throws Exception {
         PromocaoDAO dao = new PromocaoDAO();
         if (promocao.getId() == -1) {
-            dao.save(promocao);
+            try {
+                dao.save(promocao);
+            } catch (EntityExistsException e) {
+                throw new Exception("Já existe uma promoção neste horario!");
+            }
         } else {
             dao.update(promocao);
         }
-        System.out.println(promocao.getSiteVendas().getNome());
         return lista();
     }
 
@@ -63,7 +74,7 @@ public class PromocaoBean implements Serializable {
     public List<Promocao> getPromocoes() throws SQLException {
         PromocaoDAO dao = new PromocaoDAO();
         return dao.getAll();
-    
+
     }
 
     public Promocao getPromocao() {

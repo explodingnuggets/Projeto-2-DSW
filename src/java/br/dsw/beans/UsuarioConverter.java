@@ -8,6 +8,7 @@ package br.dsw.beans;
 import br.dsw.dao.SiteVendasDAO;
 import br.dsw.dao.UsuarioDAO;
 import br.dsw.pojo.SiteVendas;
+import br.dsw.pojo.Teatro;
 import br.dsw.pojo.Usuario;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -18,30 +19,28 @@ import javax.faces.convert.FacesConverter;
  *
  * @author pedro
  */
-@FacesConverter(forClass=Usuario.class, value = "UsuarioConverter")
+@FacesConverter(forClass = Usuario.class, value = "UsuarioConverter")
 public class UsuarioConverter implements Converter {
 
     private UsuarioDAO dao;
+
     public UsuarioConverter() {
-         dao = new UsuarioDAO();
+        dao = new UsuarioDAO();
     }
-    
+
     @Override
     public Object getAsObject(FacesContext fc, UIComponent uic, String string) {
-        long id = -0;
-        try {
-            String[] splitName = string.split(" ",2);
-            String id_string = splitName[0];
-            id = Long.parseLong(splitName[0]);
-            System.out.println(id);
-        } catch (Exception e) {
-
+        if (string == null || string.isEmpty() || string.equals("Sem Usuario")) {
+            return null;
         }
-        return dao.get(id);
+        return dao.getByEmail(string);
     }
 
     @Override
     public String getAsString(FacesContext fc, UIComponent uic, Object o) {
+        if (o == null || !(o instanceof Usuario)) {
+            return "Sem Usuario";
+        }
         return o.toString();
     }
 

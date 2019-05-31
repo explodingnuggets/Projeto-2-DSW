@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public abstract class GenericDAO<T> {
+public abstract class GenericDAO<T,K> {
     private final EntityManagerFactory emf;
     
     public GenericDAO() {
@@ -17,7 +17,7 @@ public abstract class GenericDAO<T> {
         return emf.createEntityManager();
     }
     
-    abstract T get(long id);
+    abstract T get(K id);
     abstract List<T> getAll();
     abstract void save(T t);
     abstract void update(T t);

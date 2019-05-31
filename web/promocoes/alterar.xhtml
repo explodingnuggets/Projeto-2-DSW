@@ -9,7 +9,7 @@
 
         <ui:define name="form_content">  
 
-                
+            <p:panelGrid columns="3">
                 <p:outputLabel for="nome" value="#{msg['promocoes.alterar.nome']}" />
                 <p:inputText value="#{promocaoBean.promocao.nome}" id="nome" required="true"/>
                 <p:message for="nome" display="icon" />
@@ -19,9 +19,9 @@
                 <p:message for="preco" display="icon" />
 
                 <p:outputLabel for="diaHorario" value="#{msg['promocoes.alterar.dia']}" />
-                <p:inputText value="#{promocaoBean.promocao.diaHorario}" id="diaHorario" required="true" >
-                    <f:convertDateTime pattern="d/M/yyyy"></f:convertDateTime>
-                </p:inputText>
+                <p:inputMask value="#{promocaoBean.promocao.diaHorario}" id="diaHorario" mask="99:99 99/99/9999" required="true" >
+                    <f:convertDateTime pattern="H:mm d/M/yyyy"></f:convertDateTime>
+                </p:inputMask>
                 <p:message for="diaHorario" display="icon" />
 
                 <p:outputLabel for="site" value="#{msg['promocoes.alterar.site']}" />
@@ -31,18 +31,20 @@
                 </p:selectOneMenu>
                 <p:message for="site" display="icon" />
 
-                <p:outputLabel for="teatro" value="#{msg['promocoes.alterar.teatro']}" />
-                <p:selectOneMenu id="teatro" value="#{promocaoBean.promocao.teatro}" converter="TeatroConverter" required="true">
+                <p:outputLabel rendered="#{usuarioBean.usuario.admin}" for="teatro" value="#{msg['promocoes.alterar.teatro']}" />
+                <p:selectOneMenu rendered="#{usuarioBean.usuario.admin}" id="teatro" value="#{promocaoBean.promocao.teatro}" converter="TeatroConverter" required="true">
                     <f:selectItems value="#{teatroBean.teatros}">
                     </f:selectItems>
                 </p:selectOneMenu>
-                <p:message for="teatro" display="icon" />
+                <p:message rendered="#{usuarioBean.usuario.admin}" for="teatro" display="icon" />
+                <h:inputHidden converter="TeatroConverter" rendered="#{!usuarioBean.usuario.admin}" value="#{promocaoBean.promocao.teatro}"/>
+
                 <h:inputHidden  value="#{promocaoBean.promocao.id}" id="id"/>
 
 
 
                 <p:commandButton ajax="false" action="#{promocaoBean.salva()}"  value="#{msg['promocoes.alterar.cadastrar']}"></p:commandButton>                      
-
-            </ui:define>
+            </p:panelGrid>
+        </ui:define>
     </ui:composition>
 </html>

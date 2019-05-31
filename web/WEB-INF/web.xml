@@ -12,17 +12,16 @@
         <filter-name>AdminFilter</filter-name>
         <filter-class>br.dsw.control.filters.AdminFilter</filter-class>
     </filter>
-    <filter-mapping>
-        <filter-name>AdminFilter</filter-name>
-        <url-pattern>/sites/*</url-pattern>
-        <url-pattern>/teatros/alterar.xhtml</url-pattern>
-    </filter-mapping>
+
     <filter>
         <filter-name>LoggedFilter</filter-name>
         <filter-class>br.dsw.control.filters.LoggedFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>LoggedFilter</filter-name>
+        <url-pattern>/sites/listar.xhtml</url-pattern>
+        <url-pattern>/sites/alterar.xhtml</url-pattern>
+        <url-pattern>/teatros/alterar.xhtml</url-pattern>
         <url-pattern>/promocoes/alterar.xhtml</url-pattern>
     </filter-mapping>
     <servlet>

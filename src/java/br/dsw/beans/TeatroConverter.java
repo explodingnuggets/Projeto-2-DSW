@@ -16,28 +16,28 @@ import javax.faces.convert.FacesConverter;
  *
  * @author pedro
  */
-@FacesConverter(forClass=Teatro.class, value = "TeatroConverter")
+@FacesConverter(forClass = Teatro.class, value = "TeatroConverter")
 public class TeatroConverter implements Converter {
 
     private TeatroDAO teatroDao;
+
     public TeatroConverter() {
-         teatroDao = new TeatroDAO();
+        teatroDao = new TeatroDAO();
     }
-    
 
     @Override
     public Object getAsObject(FacesContext fc, UIComponent uic, String string) {
-        long id = 0;
-        try {
-            String[] splitName = string.split("@", 2);
-            id = Long.parseLong(splitName[0]);
-        } catch (Exception e) {
+        if (string == null || string.isEmpty() || string.equals("Sem teatro")) {
+            return null;
         }
-        return teatroDao.get(id);
+        return teatroDao.get(string);
     }
 
     @Override
     public String getAsString(FacesContext fc, UIComponent uic, Object o) {
+        if (o == null  || !(o instanceof Teatro) || ((Teatro)o).getNome().isEmpty()) {
+            return "Sem teatro";
+        }
         return o.toString();
     }
 

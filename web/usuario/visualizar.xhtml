@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/WEB-INF/templates/form.xhtml">
+        <ui:param name="titulo" value="#{msg['usuario.visualizar.titulo']}" />
+
+        <ui:define name="form_content">  
+
+
+  <p:panelGrid style="" columns="3" >
+                <p:outputLabel for="email" value="#{msg['usuario.visualizar.email']}" />
+                <p:inputText  value="#{usuarioBean.usuario.email}" id="email" readonly="true"/>
+                <p:message for="email" display="icon" />
+
+                <p:outputLabel for="teatro" value="#{msg['usuario.visualizar.teatro']}" />
+                <h:outputText value="#{usuarioBean.teatro!=null ? usuarioBean.teatro : 'Sem teatro'}"  id="teatro" />
+                <p:commandButton action="#{teatroBean.cadastraParaUsuario(usuarioBean.usuario)}" ajax="false" value="Editar/Cadastrar"/>
+                
+                <p:outputLabel for="site" value="#{msg['usuario.visualizar.site']}" />
+                <h:outputText  value="#{usuarioBean.siteVendas!=null ? usuarioBean.siteVendas : 'Sem site'}" id="site"/>
+                <p:commandButton ajax="false" action="#{siteVendasBean.cadastraParaUsuario(usuarioBean.usuario)}" value="Editar/Cadastrar"/>
+
+ 
+  </p:panelGrid>
+
+            </ui:define>
+    </ui:composition>
+</html>

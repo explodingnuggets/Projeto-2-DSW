@@ -8,6 +8,7 @@ package br.dsw.beans;
 import br.dsw.dao.TeatroDAO;
 import br.dsw.dao.UsuarioDAO;
 import br.dsw.pojo.Teatro;
+import br.dsw.pojo.Usuario;
 import java.sql.SQLException;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -31,8 +32,14 @@ public class TeatroBean {
         teatro = new Teatro();
         return "/teatros/alterar.xhtml";
     }
+    public String cadastraParaUsuario(Usuario u) {
 
-    public String edita(Long id) {
+        teatro = new Teatro();
+        teatro.setUsuario(u);
+        return "/teatros/alterar.xhtml";
+    }
+
+    public String edita(String id) {
         TeatroDAO dao = new TeatroDAO();
         teatro = dao.get(id);
         return "/teatros/alterar.xhtml";
@@ -40,18 +47,16 @@ public class TeatroBean {
 
     public String salva() {
         TeatroDAO dao = new TeatroDAO();
-        if (teatro.getId() == -1) {
-            dao.save(teatro);
-        } else {
+
             dao.update(teatro);
-        }
+        
         return lista();
     }
 
     public String delete(Teatro teatro) {
         TeatroDAO dao = new TeatroDAO();
         dao.delete(teatro);
-        return "/index.xhtml";
+        return lista();
     }
 
     public String volta() {

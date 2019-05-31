@@ -10,20 +10,26 @@
         <ui:define name="form_content">                
 
             <p:outputLabel for="nome" value="#{msg['sites.alterar.nome']}" />
-            <p:inputText value="#{siteVendasBean.siteVendas.nome}" id="nome" required="true" />
+            <p:inputText value="#{siteVendasBean.siteVendas.nome}" id="nome" required="true"   readonly="#{siteVendasBean.siteVendas.nome!=null}" />
             <p:message for="nome" display="icon" /> 
 
             <p:outputLabel for="url" value="#{msg['sites.alterar.url']}" />
             <p:inputText value="#{siteVendasBean.siteVendas.url}"  id="url" validator="URLValidator" required="true"  />
             <p:message for="url" display="icon" />
-            
+
             <p:outputLabel for="telefone" value="#{msg['sites.alterar.telefone']}" />
             <p:inputText value="#{siteVendasBean.siteVendas.telefone}" id="telefone" validator="TelefoneValidator" required="true"/>
             <p:message for="telefone" display="icon" /> 
-            <h:inputHidden  value="#{siteVendasBean.siteVendas.id}" id="id"/>
 
+            <p:outputLabel for="usuario" value="#{msg['sites.alterar.usuario']}" />
 
-            <p:commandButton action="#{siteVendasBean.salva()}" ajax="false" value="#{msg['sites.alterar.cadastrar']}"></p:commandButton>                      
+            <p:selectOneMenu id="usuario" value="#{siteVendasBean.siteVendas.usuario}"  converter="UsuarioConverter" required="true">
+                <f:selectItems value="#{usuarioBean.usuarios}">
+                </f:selectItems>
+            </p:selectOneMenu>
+            <p:message for="telefone" display="icon" /> 
+            
+            <p:commandButton  action="#{siteVendasBean.salva()}" ajax="false" value="#{msg['sites.alterar.cadastrar']}"></p:commandButton>                      
 
         </ui:define>
     </ui:composition>

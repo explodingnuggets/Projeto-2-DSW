@@ -14,20 +14,20 @@
             <p:menuitem value="#{msg['navbar.inicio']}" url="/index.xhtml"/>
             <p:menuitem value="#{msg['navbar.promocoes']}" url="#{promocaoBean.lista()}" />
             <p:menuitem value="#{msg['navbar.teatros']}" url="/teatros/listar.xhtml" />
-            <p:menuitem value="#{msg['navbar.sites']}" url="/sites/listar.xhtml"/>
+            <p:menuitem rendered="#{usuarioBean.usuario!=null and usuarioBean.usuario.id != -1}" value="#{msg['navbar.sites']}" url="/sites/listar.xhtml"/>
             <f:facet name="options">
-                <p:button rendered="#{usuarioBean.usuario.id == -1}"  href="javascript:void(0)" onclick="PF('login').show();" value="#{msg['navbar.login']}" title="login"/>
+                <p:button rendered="#{usuarioBean.usuario == null or usuarioBean.usuario.id == -1}"  href="javascript:void(0)" onclick="PF('login').show();" value="#{msg['navbar.login']}" title="login"/>
                
                 <h:outputText value="#{usuarioBean.usuario.email}"/>
-
-                <p:commandButton rendered="#{usuarioBean.usuario.id != -1}" value="#{msg['navbar.sair']}" ajax="false" action="#{usuarioBean.logout()}">
+                <p:commandButton style="margin-left:10px;" rendered="#{usuarioBean.usuario != null and usuarioBean.usuario.id != -1}" value="#{msg['navbar.visualizar']}" ajax="false" action="#{usuarioBean.visualizar()}"/>
+                <p:commandButton style="margin-left:10px;" rendered="#{usuarioBean.usuario != null and usuarioBean.usuario.id != -1}" value="#{msg['navbar.sair']}" ajax="false" action="#{usuarioBean.logout()}">
                 </p:commandButton>       
             </f:facet>
         </p:menubar>
 
 
-        <p:dialog rendered="#{usuarioBean.usuario.id == -1}" header="Login" widgetVar="login" resizable="false">
-            <h:panelGrid columns="2" cellpadding="5">
+        <p:dialog rendered="#{usuarioBean.usuario == null or usuarioBean.usuario.id == -1}" header="Login" widgetVar="login" resizable="false">
+            <p:panelGrid  columns="2" >
                 <h:outputLabel for="username" value="#{msg['login.usuario']}:" />
                 <p:inputText id="username" value="#{usuarioBean.usuario.email}" required="true" label="Email"  validator="EmailValidator" />
 
@@ -43,7 +43,7 @@
                     <p:commandButton value="#{msg['navbar.criar']}" ajax="false"  action="#{usuarioBean.create}"
                                      />
                 </f:facet>  
-            </h:panelGrid>
+            </p:panelGrid>
         </p:dialog>  
  
     </h:form>

@@ -5,9 +5,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-public class TeatroDAO extends GenericDAO<Teatro> {
+public class TeatroDAO extends GenericDAO<Teatro,String> {
     @Override
-    public Teatro get(long id) {
+    public Teatro get(String id) {
         EntityManager em = this.getEntityManager();
         Teatro teatro = em.find(Teatro.class, id);
         em.close();
@@ -47,7 +47,7 @@ public class TeatroDAO extends GenericDAO<Teatro> {
     public void delete(Teatro teatro) {
         EntityManager em = this.getEntityManager();
         EntityTransaction tx = em.getTransaction();
-        teatro = em.getReference(Teatro.class, teatro.getId());
+        teatro = em.getReference(Teatro.class, teatro.getNome());
         tx.begin();
         em.remove(teatro);
         tx.commit();

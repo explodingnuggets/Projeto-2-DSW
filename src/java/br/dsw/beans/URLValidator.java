@@ -13,7 +13,7 @@ import javax.faces.validator.ValidatorException;
 @FacesValidator("URLValidator")
 public class URLValidator implements Validator{
 
-	private static final String URL_PATTERN = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
+	private static final String URL_PATTERN = "[(http(s)?):\\/\\/(www\\.)?a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)";
 
 	private Pattern pattern;
 	private Matcher matcher;
