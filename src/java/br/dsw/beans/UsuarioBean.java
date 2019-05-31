@@ -57,8 +57,9 @@ public class UsuarioBean implements Serializable {
 
     public String login() throws Exception {
         UsuarioDAO dao = new UsuarioDAO();
+        String t_senha = usuario.getSenha();
         try {
-            usuario = dao.get(usuario.getEmail(), usuario.getSenha());
+            usuario = dao.getByEmail(usuario.getEmail());
 
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user_email", usuario.getEmail());
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user_id", usuario.getId());
@@ -66,6 +67,9 @@ public class UsuarioBean implements Serializable {
         } catch (NoResultException e) {
            usuario = new Usuario();
             throw new Exception("Usuário não encontrado");
+        }
+        if(usuario.getSenha() != t_senha){
+            throw new Exception("Senha errada");
         }
         return "/index.xhtml?faces-redirect=true";
     }
