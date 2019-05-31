@@ -17,11 +17,11 @@
 
                 <p:outputLabel for="teatro" value="#{msg['usuario.visualizar.teatro']}" />
                 <h:outputText value="#{usuarioBean.teatro!=null ? usuarioBean.teatro : 'Sem teatro'}"  id="teatro" />
-                <p:commandButton action="#{teatroBean.cadastraParaUsuario(usuarioBean.usuario)}" ajax="false" value="Editar/Cadastrar"/>
+                <p:commandButton action="#{teatroBean.cadastraParaUsuario(usuarioBean.usuario)}" ajax="false" value="#{msg['usuario.visualizar.editar_cadastrar']}"/>
                 
                 <p:outputLabel for="site" value="#{msg['usuario.visualizar.site']}" />
                 <h:outputText  value="#{usuarioBean.siteVendas!=null ? usuarioBean.siteVendas : 'Sem site'}" id="site"/>
-                <p:commandButton ajax="false" action="#{siteVendasBean.cadastraParaUsuario(usuarioBean.usuario)}" value="Editar/Cadastrar"/>
+                <p:commandButton ajax="false" action="#{siteVendasBean.cadastraParaUsuario(usuarioBean.usuario)}" value="#{msg['usuario.visualizar.editar_cadastrar']}"/>
 
  
   </p:panelGrid>
