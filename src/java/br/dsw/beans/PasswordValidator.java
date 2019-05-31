@@ -19,7 +19,7 @@ public class PasswordValidator implements Validator {
 
         if (value.toString().length() < 5) {
             FacesMessage msg
-                    = new FacesMessage("Senha muito pequena, são necessarios pelo menos 5 digitos");
+                    = new FacesMessage("Entrada inválida","Senha muito pequena, são necessarios pelo menos 5 digitos");
             msg.setSeverity(FacesMessage.SEVERITY_ERROR);
             throw new ValidatorException(msg);
         }

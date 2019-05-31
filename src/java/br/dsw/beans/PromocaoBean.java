@@ -49,15 +49,16 @@ public class PromocaoBean implements Serializable {
 
     public String salva() throws Exception {
         PromocaoDAO dao = new PromocaoDAO();
-        if (promocao.getId() == -1) {
-            try {
+        try {
+            if (promocao.getId() == -1) {
                 dao.save(promocao);
-            } catch (EntityExistsException e) {
-                throw new Exception("Já existe uma promoção neste horario!");
+            } else {
+                dao.update(promocao);
             }
-        } else {
-            dao.update(promocao);
+        } catch (Exception e) {
+            throw new Exception("Já existe uma promoção neste horario!");
         }
+
         return lista();
     }
 

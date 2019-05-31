@@ -32,9 +32,13 @@ public class TeatroBean {
         teatro = new Teatro();
         return "/teatros/alterar.xhtml";
     }
-    public String cadastraParaUsuario(Usuario u) {
 
-        teatro = new Teatro();
+    public String cadastraParaUsuario(Usuario u) {
+        UsuarioDAO udau = new UsuarioDAO();
+        teatro = udau.getTeatro(u);
+        if (teatro == null) {
+            teatro = new Teatro();
+        }
         teatro.setUsuario(u);
         return "/teatros/alterar.xhtml";
     }
@@ -45,11 +49,13 @@ public class TeatroBean {
         return "/teatros/alterar.xhtml";
     }
 
-    public String salva() {
+    public String salva() throws Exception {
         TeatroDAO dao = new TeatroDAO();
-
+        try {
             dao.update(teatro);
-        
+        } catch (Exception e) {
+            throw new Exception("Este usuário ja possui teatro, ou então o nome já está em uso");
+        }
         return lista();
     }
 

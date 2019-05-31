@@ -21,13 +21,14 @@
             <p:inputText value="#{siteVendasBean.siteVendas.telefone}" id="telefone" validator="TelefoneValidator" required="true"/>
             <p:message for="telefone" display="icon" /> 
 
-            <p:outputLabel for="usuario" value="#{msg['sites.alterar.usuario']}" />
 
-            <p:selectOneMenu id="usuario" value="#{siteVendasBean.siteVendas.usuario}"  converter="UsuarioConverter" required="true">
+           <p:outputLabel for="usuario" rendered="${usuarioBean.usuario.admin}" value="#{msg['sites.alterar.usuario']}" />
+            <p:selectOneMenu id="usuario"  rendered="${usuarioBean.usuario.admin}" value="#{siteVendasBean.siteVendas.usuario}"  converter="UsuarioConverter" required="true">
                 <f:selectItems value="#{usuarioBean.usuarios}">
                 </f:selectItems>
             </p:selectOneMenu>
-            <p:message for="telefone" display="icon" /> 
+            <p:message for="usuario" rendered="${usuarioBean.usuario.admin}" display="icon" /> 
+            <h:inputHidden converter="UsuarioConverter" rendered="${!usuarioBean.usuario.admin}" value="#{siteVendasBean.siteVendas.usuario}"></h:inputHidden>
             
             <p:commandButton  action="#{siteVendasBean.salva()}" ajax="false" value="#{msg['sites.alterar.cadastrar']}"></p:commandButton>                      
 

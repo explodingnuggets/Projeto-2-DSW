@@ -3,6 +3,7 @@ package br.dsw.dao;
 import br.dsw.pojo.Promocao;
 import br.dsw.pojo.SiteVendas;
 import java.util.List;
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -18,18 +19,19 @@ public class SiteVendasDAO extends GenericDAO<SiteVendas, String> {
     }
 
     @Override
-    public void save(SiteVendas site) {
+    public void save(SiteVendas site) throws EntityExistsException {
         EntityManager em = this.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        em.persist(site);
+            em.persist(site);
 
+     
         tx.commit();
         em.close();
     }
 
     @Override
-    public void update(SiteVendas site) {
+    public void update(SiteVendas site) throws EntityExistsException {
         EntityManager em = this.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();

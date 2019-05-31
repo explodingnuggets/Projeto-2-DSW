@@ -11,30 +11,26 @@ import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
 @FacesValidator("PrecoValidator")
-public class PrecoValidator implements Validator{
+public class PrecoValidator implements Validator {
 
-	private static final String PRECO_PATTERN = "^[0-9]{0,12}([,][0-9]{2,2})?$";
+    public PrecoValidator() {
+    }
 
-	private Pattern pattern;
-	private Matcher matcher;
-	
-	public PrecoValidator(){
-		  pattern = Pattern.compile(PRECO_PATTERN);
-	}
-	
-	@Override
-	public void validate(FacesContext context, UIComponent component,
-			Object value) throws ValidatorException {
-		
-		matcher = pattern.matcher(value.toString());
-		if(!matcher.matches()){
-			
-			FacesMessage msg = 
-				new FacesMessage("Preco inválido, digite valores comuns, com ou sem virgula");
-			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
-			throw new ValidatorException(msg);
+    @Override
+    public void validate(FacesContext context, UIComponent component,
+            Object value) throws ValidatorException {
+        if (!(value instanceof Double)) {
+            FacesMessage msg
+                    = new FacesMessage("Preco inválido, digite apenas numeros");
+            msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+            throw new ValidatorException(msg);
+        }
+        if (((double) value) < 0) {
+            FacesMessage msg
+                    = new FacesMessage("Preco inválido, digite valores positivos");
+            msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+            throw new ValidatorException(msg);
+        }
 
-		}
-
-	}
+    }
 }

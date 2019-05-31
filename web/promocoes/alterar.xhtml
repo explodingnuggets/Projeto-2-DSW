@@ -15,7 +15,7 @@
                 <p:message for="nome" display="icon" />
 
                 <p:outputLabel for="preco" value="#{msg['promocoes.alterar.preco']}" />
-                <p:inputText value="#{promocaoBean.promocao.preco}"  id="preco" type="number" required="true" />
+                <p:inputText value="#{promocaoBean.promocao.preco}"  id="preco" type="number" required="true" validator="PrecoValidator" />
                 <p:message for="preco" display="icon" />
 
                 <p:outputLabel for="diaHorario" value="#{msg['promocoes.alterar.dia']}" />

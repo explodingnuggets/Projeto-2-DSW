@@ -34,8 +34,11 @@ public class SiteVendasBean {
     }
 
     public String cadastraParaUsuario(Usuario u) {
-
-        siteVendas = new SiteVendas();
+        UsuarioDAO udau = new UsuarioDAO();
+        siteVendas = udau.getSiteVendas(u);
+        if (siteVendas == null) {
+            siteVendas = new SiteVendas();
+        }
         siteVendas.setUsuario(u);
         return "/sites/alterar.xhtml";
     }
@@ -50,10 +53,13 @@ public class SiteVendasBean {
         return "/sites/alterar.xhtml";
     }
 
-    public String salva() {
+    public String salva() throws Exception {
         SiteVendasDAO dao = new SiteVendasDAO();
-        dao.update(siteVendas);
-        
+       try {
+            dao.update(siteVendas);
+        } catch (Exception e) {
+            throw new Exception("Este usuário ja possui site de vendas, ou então o nome já está em uso");
+        }
         return lista();
     }
 

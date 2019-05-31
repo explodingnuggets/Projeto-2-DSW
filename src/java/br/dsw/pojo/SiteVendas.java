@@ -19,6 +19,7 @@ import javax.persistence.OneToOne;
 public class SiteVendas implements Serializable {
 
     @OneToOne
+    @JoinColumn(unique=true)
     private Usuario usuario;
 
     @OneToMany(fetch = FetchType.LAZY)

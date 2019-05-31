@@ -23,22 +23,22 @@ endereço/URL do site de venda de ingressos, CNPJ do teatro, nome da peça,
 preço e dia/horário.
 
 ## Funcionalidades necessárias
-- [ ]  Operações CRUD 1 de sites de venda de ingressos (requer login de
+- [X]  Operações CRUD 1 de sites de venda de ingressos (requer login de
 administrador)
-- [ ] Operações CRUD de teatros (requer login de administrador)
-- [ ] Listagem de todos os teatros em uma única página (não requer login)
-- [ ] Listagem de todos os teatros por cidade (não requer login)
-- [ ] Criação de uma promoção de um teatro (requer login do teatro: via e-
+- [X] Operações CRUD de teatros (requer login de administrador)
+- [X] Listagem de todos os teatros em uma única página (não requer login)
+- [X] Listagem de todos os teatros por cidade (não requer login)
+- [X] Criação de uma promoção de um teatro (requer login do teatro: via e-
 mail + senha). Depois de fazer login, o teatro pode cadastrar uma
 promoção. Para isso, deve escolher o site de venda de ingressos
 (digitando seu endereço/URL ou escolhendo a partir de uma lista), o nome
 da peça, o preço, e o dia/horário da sessão, e deve ser gravada a
 promoção na base de dados.
-- [ ] Listagem de todas as promoções de um teatro (não requer login).
-- [ ] Listagem de todas as promoções de um site de venda de ingressos
+- [X] Listagem de todas as promoções de um teatro (não requer login).
+- [X] Listagem de todas as promoções de um site de venda de ingressos
 (requer login do site: via e-mail + senha).
 - [X] O sistema não deve permitir o cadastro de promoções de um mesmo
 teatro ou de um mesmo site de venda de ingressos em um mesmo
 dia/horário.
-- [ ] O sistema deve ser internacionalizado em pelo menos dois idiomas:
+- [X] O sistema deve ser internacionalizado em pelo menos dois idiomas:
 português + outro de sua escolha.

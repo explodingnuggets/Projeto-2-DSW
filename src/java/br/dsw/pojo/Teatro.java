@@ -21,6 +21,7 @@ import javax.persistence.OneToOne;
 public class Teatro implements Serializable {
 
     @OneToOne
+    @JoinColumn(unique=true)
     private Usuario usuario;
 
     @OneToMany

@@ -15,6 +15,7 @@ import javax.faces.event.ExceptionQueuedEvent;
 import javax.faces.event.ExceptionQueuedEventContext;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import javax.faces.application.FacesMessage;
 
@@ -54,7 +55,13 @@ public class T2ExceptionHandler extends ExceptionHandlerWrapper {
 
             try {
                 requestMap.put("exceptionMessage", exception.getMessage());
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, exception.getMessage(), ""));
+                String error = exception.getMessage();
+                try {
+                    String[] errors = exception.getMessage().split(":", 3);
+                    error = errors[errors.length];
+                } catch (Exception e) {
+                }
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", exception.getMessage().split(":", 3)[2]));
                 facesContext.renderResponse();
             } finally {
                 iterator.remove();

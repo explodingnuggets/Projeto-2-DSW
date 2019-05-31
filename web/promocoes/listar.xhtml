@@ -23,10 +23,10 @@
                     <p:column filterBy="#{promocao.teatro.cidade}" headerText="#{msg['teatros.listar.cidade']}" filterMatchMode="contains" style="text-align:center;"  >
                         <h:outputText value="#{promocao.teatro.cidade}" />
                     </p:column>
-                    <p:column headerText="#{msg['promocoes.listar.teatro']}" style="text-align:center;"  >  
+                    <p:column filterBy="#{promocao.teatro.nome}" filterMatchMode="contains" headerText="#{msg['promocoes.listar.teatro']}" style="text-align:center;"  >  
                         <h:outputText converter="TeatroConverter" value="#{promocao.teatro}"/>  
                     </p:column>
-                    <p:column headerText="#{msg['promocoes.listar.site']}" style="text-align:center;"  >  
+                    <p:column filterBy="#{promocao.siteVendas.nome}" filterMatchMode="contains" rendered="#{usuarioBean.usuario!=null and usuarioBean.usuario.id!=-1}" headerText="#{msg['promocoes.listar.site']}" style="text-align:center;"  >  
                         <h:outputText  converter="SiteConverter" value="#{promocao.siteVendas}"/>  
                     </p:column>
 
@@ -38,8 +38,8 @@
 
                     </p:column>
                 </p:dataTable>  
-                <h:outputText class="has-text-centered is-fullwidth is-block" rendered="#{usuarioBean.teatro==null}" value="Defina seu teatro para postar promoções" />
-                <p:commandButton rendered="#{usuarioBean.usuario.id!=-1 and usuarioBean.teatro!=null}" value="#{msg['promocoes.listar.cadastrar']}" action = "#{promocaoBean.cadastraDoTeatro(usuarioBean.teatro)}" ajax="false"/>
+                <h:outputText class="has-text-centered is-fullwidth is-block" rendered="#{usuarioBean.teatro==null and !usuarioBean.usuario.admin}" value="Defina seu teatro para postar promoções" />
+                <p:commandButton rendered="#{usuarioBean.usuario.id!=-1 and (usuarioBean.teatro!=null or usuarioBean.usuario.admin)}" value="#{msg['promocoes.listar.cadastrar']}" action = "#{promocaoBean.cadastraDoTeatro(usuarioBean.teatro)}" ajax="false"/>
             </h:form>
         </ui:define>
     </ui:composition>
