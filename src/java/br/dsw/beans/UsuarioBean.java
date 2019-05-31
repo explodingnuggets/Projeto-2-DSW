@@ -68,7 +68,7 @@ public class UsuarioBean implements Serializable {
            usuario = new Usuario();
             throw new Exception("Usuário não encontrado");
         }
-        if(usuario.getSenha() != t_senha){
+        if(!usuario.getSenha().equals(t_senha)){
             throw new Exception("Senha errada");
         }
         return "/index.xhtml?faces-redirect=true";
