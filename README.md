@@ -2,11 +2,11 @@
 
 ## Instruções
 
-- Clonar o repositorio
-- Configurar o Tomcat
-- Rodar usando Netbeans
-- Utilizar o usuario `teste@teste.com` e senha `testeteste` para logar(ou crie
-um novo)
+- Clone o repositorio
+- Configurare o Tomcat
+- Rode usando Netbeans
+- Crie um usuario qualquer (podendo ser admin ou não)
+- Abra perfil para criar teatro e site (usuarios normais podem criar apenas para si mesmos, já admins podem criar para qualquer pessoa)
 
 ## Descrição
 
